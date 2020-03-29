@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Happy Home</title>
+    {{>libs}}
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-md navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img src="/assets/logo2.png" width="200px"></a>
+            {{>navbarToggler}}
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-bounce-to-top" href="/places">Mağazalar</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link hvr-bounce-to-top" href="/products">Məhsullar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-bounce-to-top" href="/contact">Əlaqə</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    {{>jumbotron}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md float-left">
+                <h3 class="display-4">A complete introduction to Bootstrap</h3>
+                <p>
+                    Get to know Boostrap as a child
+                </p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+            <div class="col-md float-left">
+                <h3 class="display-4">A complete introduction to Bootstrap</h3>
+                <p>
+                    Get to know Boostrap as a child
+                </p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md float-left">
+                <h3 class="display-4">A complete introduction to Bootstrap</h3>
+                <p>
+                    Get to know Boostrap as a child
+                </p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+            <div class="col-md float-left">
+                <h3 class="display-4">A complete introduction to Bootstrap</h3>
+                <p>
+                    Get to know Boostrap as a child
+                </p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md float-left">
+                <h3 class="display-4">A complete introduction to Bootstrap</h3>
+                <p>
+                    Get to know Boostrap as a child
+                </p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+            <div class="col-md float-left">
+                <h3 class="display-4">A complete introduction to Bootstrap</h3>
+                <p>
+                    Get to know Boostrap as a child
+                </p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        let navbarIndexer = 0;
+        $('button.navbar-toggler').on('click', () => {
+            if (navbarIndexer == 0) {
+                $('.navbar-toggler span').addClass('active-span')
+                navbarIndexer = 1
+            } else {
+                $('.navbar-toggler span').removeClass('active-span')
+                navbarIndexer = 0
+            }
+        })
+    </script>
+    {{>backToTop}}
+</body>
+
+</html>

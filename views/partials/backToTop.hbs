@@ -1,0 +1,19 @@
+<div onclick="backToTop()" class="hidden back-to-top">
+    <i class="fas fa-arrow-circle-up"></i>
+</div>
+<script>
+    window.onscroll = () => {
+        scrollFunction()
+    };
+
+    const scrollFunction = async() => {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            $('.back-to-top').removeClass('hidden');
+        } else {
+            $('.back-to-top').addClass('hidden');
+        }
+    }
+    const backToTop = () => {
+        $('html, body').animate({ scrollTop: '0' }, 400);
+    }
+</script>
