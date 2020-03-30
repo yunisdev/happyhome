@@ -1,0 +1,21 @@
+<div style="margin:100px 0px;" class="container col-md-12">
+    <div class="row col-md-6 offset-md-3">
+        <h2 class="col-md-12 text-center">Məhsullar</h2>
+        <div class="container col-md-8 offset-md-2">
+            <div class="col-md">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const loadProducts = async () => {
+        const response = await fetch('/data/products')
+        const data = await response.json()
+        outputToScreen(data)
+    }
+    loadProducts()
+    const outputToScreen = (data) => {
+
+    }
+</script>

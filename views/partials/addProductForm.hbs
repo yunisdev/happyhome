@@ -1,0 +1,75 @@
+<div style="margin:100px 0px;" class="container padding-zero col-md-12">
+    <form enctype="multipart/form-data" autocomplete="off" action="/data/product" class="row col-md-6 offset-md-3" method="POST">
+        <h2 class="col-md-12 text-center">Məhsul əlavə et</h2>
+        <div class="col-md-6 float-left">
+            <div class="padding-zero col-md-12 form-field">
+                <label for="name">Adı:</label><br>
+                <input required aria-describedby="nameHelp" class="form-control" placeholder="Adı..." type="text" id="name"
+                    name="name">
+                <small id="nameHelp" class="form-text text-muted">Məhsulun adında kod olmamalıdır.
+                    Məcburidir</small>
+            </div>
+            <div class="padding-zero col-md-12 form-field">
+                <label for="pcs">Ədəd:</label><br>
+                <input aria-describedby="pcsHelp" class="form-control" placeholder="Ədəd..." type="text" id="pcs"
+                    name="pcs">
+                <small id="pcsHelp" class="form-text text-muted">Parça sayı bir neçə formadadırsa, aralarında vergül
+                    qoyulmalıdır. Əgər ehtiyac yoxdursa yazılmaya bilər</small>
+            </div>
+            <div class="padding-zero col-md-12 form-field">
+                <label for="code">Kod:</label><br>
+                <input required aria-describedby="codeHelp" class="form-control" placeholder="Kod..." type="text" id="code"
+                    name="code">
+                <small id="codeHelp" class="form-text text-muted">Gündəlik istifadə olunan kod. Məcburidir</small>
+            </div>
+            <div class="padding-zero col-md-12 form-field">
+                <label for="category">Kateqoriya:</label><br>
+                <select required aria-describedby="cateHelp" class="form-control" type="text"
+                    id="category" name="category">
+                    <option value="" hidden selected disabled>Kateqoriya seç</option>
+                    <option value="Çilçıraq">Çilçıraq</option>
+                    <option value="Qazan dəsti">Qazan dəsti</option>
+                    <option value="Boşqab altlığı">Boşqab altlığı</option>
+                    <option value="Hədiyyəlik qab">Hədiyyəlik qab</option>
+                    <option value="Elektrikli alətlər">Elektrikli alətlər</option>
+                    <option value="Qaşıq-Çəngəl-Bıçaq dəsti">Qaşıq-Çəngəl-Bıçaq dəsti</option>
+                    <option value="Bakal-Qrafin dəsti">Bakal-Qrafin dəsti</option>
+                    <option value="Süfrə dəsti">Süfrə dəsti</option>
+                </select>
+                <small id="cateHelp" class="form-text text-muted">Siyahıdakı kateqoriyalardan birini seç.
+                    Məcburidir</small>
+            </div>
+        </div>
+        <div class="col-md-6 float-left">
+            <div class="padding-zero col-md-12 form-field">
+                <label for="subcate">Alt Kateqoriyalar:</label><br>
+                <input aria-describedby="subcateHelp" class="form-control" placeholder="Alt Kateqoriyalar..."
+                    type="text" id="subcate" name="subcate">
+                <small id="subcateHelp" class="form-text text-muted">Uyğun alt kateqoriyaları vergüllə ayırmaqla yaz. Məcburi deyil</small>
+            </div>
+            <div class="padding-zero col-md-12 form-field">
+                <label for="ingredientList">İçindəkilər:</label><br>
+                <textarea required aria-describedby="ingHelp" class="form-control" placeholder="İçindəkilər..."
+                    type="text" id="ingredientList" name="ingredientList"></textarea>
+                <small id="ingHelp" class="form-text text-muted">İçindəki hissə(lər) vergül qoyulmaqla yazılmalıdır.
+                    Məs: Boşqab - 5,Çəngəl - 4 . Məcburidir</small>
+            </div>
+            <div class="padding-zero col-md-12 form-field">
+                <label for="specList">Xüsusiyyətləri:</label><br>
+                <textarea aria-describedby="specsHelp" class="form-control" placeholder="Xüsusiyyətləri..." type="text"
+                    id="specList" name="specList"></textarea>
+                <small id="specsHelp" class="form-text text-muted">Xüsusiyyətlər içindəkilər bölməsindəki üsulla
+                    yazılmalıdır. Məcburi deyil</small>
+            </div>
+            <div class="padding-zero col-md-12 form-field">
+                <label style="cursor: pointer;" class="btn btn-primary" for="img">Şəkil Yüklə</label><br>
+                <input style="visibility: hidden;" accept="image/jpg,image/jpeg,image/png" required style="border: none!important;outline:none" class="btn" type="file" id="img" name="img">
+            </div>
+        </div>
+        <div class="padding-zero col-md-12">
+            <div class="col-md-12 form-field">
+                <button type="submit" class="col-md-6 offset-md-3 btn btn-primary">Əlavə et</button>
+            </div>
+        </div>
+    </form>
+</div>

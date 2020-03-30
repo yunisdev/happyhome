@@ -1,1 +1,85 @@
-success
+<!DOCTYPE html>
+<html translate="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Happy Home Admin</title>
+    {{>libs}}
+    
+</head>
+
+<body style="overflow-x: hidden;">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light">
+        <div class="container">
+            <a class="navbar-brand color-main-red" href="/"><img src="/assets/logo2.png"
+                    width="200px"></a>
+            {{>navbarToggler}}
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active admin-nav-item">
+                        <a class="nav-link hvr-bounce-to-top" onclick="showAddForm()"><i class="fas fa-plus"></i></a>
+                    </li>
+                    <li class="nav-item active admin-nav-item">
+                        <a class="nav-link hvr-bounce-to-top" onclick="showProducts()"><i
+                                class="fad fa-box-alt"></i></a>
+                    </li>
+                    <li class="nav-item active admin-nav-item">
+                        <a class="nav-link hvr-bounce-to-top" onclick="showOrders()"><i
+                                class="fas fa-clipboard-list-check"></i></a>
+                    </li>
+                    <li class="nav-item active admin-nav-item">
+                        <a class="nav-link hvr-bounce-to-top" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="welcome-page">
+        <h3 style="font-size:xx-large" class="display-3 col-md-12">
+            Admin Panelinə Xoş Gəlmisiniz
+            <small style="font-size:large" class="form-text text-muted">Zəhmət olmasa yuxarıdan bölmə seçin</small>
+        </h3>
+    </div>
+    <div class="addProductForm">
+        {{>addProductForm}}
+    </div>
+    <div class="orders">
+        {{>orders}}
+    </div>
+    <div class="productList">
+        {{>productList}}
+    </div>
+    <div class="loading-animation hidden">
+        <h1>Yüklənir...</h1>
+    </div>
+    <script>
+        const welcome = $('.welcome-page')
+        const addForm = $('.addProductForm')
+        const orders = $('.orders')
+        const products = $('.productList')
+        const hideAll = () => {
+            addForm.hide()
+            orders.hide()
+            products.hide()
+            welcome.hide()
+        }
+        hideAll()
+        welcome.show()
+        const showAddForm = () => {
+            hideAll()
+            addForm.show()
+        }
+        const showOrders = () => {
+            hideAll()
+            orders.show()
+        }
+        const showProducts = () => {
+            hideAll()
+            products.show()
+        }
+    </script>
+</body>
+
+</html>

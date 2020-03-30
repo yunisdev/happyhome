@@ -1,37 +1,58 @@
 const mongoose = require('mongoose')
 
 const productsSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+    name: {
+        type: String,
+        required: true
     },
-    pcs:{
-        type:Number,
-        required:true,
-    },
-    code:{
-        type:String,
-        required:true,
-    },
-    image:{
-        type:Buffer
-    },
-    specs:[{
-        text:{
-            type:String,
-            required:true
+    pcs: [{
+        text: {
+            type: String
         }
     }],
-    ingredients:[{
-        text:{
-            type:String,
-            required:true
+    category: {
+        type: String
+    },
+    subCates: [{
+        text: {
+            type: String,
         }
-    }]
-},{
-    timestamps:true
+    }],
+    code: {
+        type: String,
+        required: true,
+    },
+    image: {
+        type: Buffer
+    },
+    specs: [{
+        text: {
+            type: String,
+        }
+    }],
+    ingredients: [{
+        text: {
+            type: String,
+            required: true
+        }
+    }],
+    soldOut: {
+        type: Boolean,
+        default: false
+    }
+}, {
+    timestamps: true
 })
 
-const Products = mongoose.model('Products',productsSchema)
+productsSchema.methods.toJSON = function () {
+    const prod = this
+    const prodObj = prod.toObject()
+
+    delete prodObj.image
+
+    return prodObj
+}
+
+const Products = mongoose.model('Products', productsSchema)
 
 module.exports = Products

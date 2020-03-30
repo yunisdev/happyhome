@@ -1,30 +1,76 @@
 const express = require('express')
 const router = express.Router()
 const Product = require('../models/product')
-
-router.get('/data/products', async (req, res) => {
-    const products = await Product.find({})
+const multer = require('multer')
+const sharp = require('sharp')
+const auth = require('../middleware/auth')
+const upload = multer({
+    limits: {
+        fileSize: 1000000
+    },
+    fileFilter(req, file, cb) {
+        if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+            return cb(new Error('Please upload jpg,jpeg,png or gif'))
+        }
+        cb(undefined, true)
+    }
+})
+router.get('/data/products', auth, async (req, res) => {
+    const products = await Product.find({ soldOut: false })
     res.send(products)
 })
+router.get('/products/:id', async (req, res) => {
+    const product = await Product.findById(req.params.id)
+    res.send(product)
+})
+router.get('/data/pic/:id', async (req, res) => {
+    const product = await Product.findById(req.params.id)
+    res.set('Content-Type', 'image/png')
+    res.send(product.image)
+})
+router.post('/data/product',upload.single('img'), async (req, res) => {
+    try {
+        const { name, code, category, ingredientList, specList, subcate, pcs } = req.body
+        var subCates = [];
+        if (subcate) {
+            subCates = subcate.split(',')
+            for (var i = 0; i < subCates.length; i++) {
+                subCates[i] = { text: subCates[i].trim() }
+            }
+        }
+        var PCS = [];
+        if (pcs) {
+            PCS = pcs.split(',')
+            for (var i = 0; i < PCS.length; i++) {
+                PCS[i] = { text: PCS[i].trim() }
+            }
+        }
+        var specs = []
+        if (specList) {
+            let spc = specList.split(',')
+            for (var i = 0; i < spc.length; i++) {
+                spc[i] = spc[i].trim()
+                specs.push({ text: spc[i] })
+            }
+        }
+        const buffer = await sharp(req.file.buffer).resize({
+            width: 500, height: 500
+        }).png().toBuffer()
 
-router.post('/data/product', async (req, res) => {
-    const { name, pcs, code, specList, ingredientList } = req.body
-    var specs = []
-    var ingredients = []
-    var spc = specList.split(',')
-    for (var i = 0; i < spc.length; i++) {
-        spc[i] = spc[i].trim()
-        specs.push({ text: spc[i] })
+        let ingredients = []
+        let ing = ingredientList.split(',')
+        for (var i = 0; i < ing.length; i++) {
+            ing[i] = ing[i].trim()
+            ingredients.push({ text: ing[i] })
+        }
+        const product = new Product({
+            name, pcs: PCS, code, ingredients, specs, image: buffer, category, subCates
+        })
+        await product.save()
+        res.status(200).redirect('/panel')
+    } catch (e) {
+        res.send(e.message)
     }
-    var ing = ingredientList.split(',')
-    for (var i = 0; i < ing.length; i++) {
-        ing[i] = ing[i].trim()
-        ingredients.push({ text: ing[i] })
-    }
-    const product = new Product({
-        name, pcs, code, ingredients, specs
-    })
-    await product.save()
 })
 
 module.exports = router
