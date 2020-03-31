@@ -55,8 +55,8 @@ router.get('/products/:category', async (req, res) => {
             category = 'Does not exist'
             break;
     }
-    const products = await Product.find({ soldOut: false, category })
-    res.send(products)
+    const products = await Product.find({ soldOut: false, category }).sort({createdAt:-1})
+    res.render('productsByCategory',{products,category})
 })
 router.get('/data/pic/:id', async (req, res) => {
     const product = await Product.findById(req.params.id)
