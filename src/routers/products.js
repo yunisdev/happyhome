@@ -19,16 +19,51 @@ router.get('/data/products', auth, async (req, res) => {
     const products = await Product.find({ soldOut: false })
     res.send(products)
 })
-router.get('/products/:id', async (req, res) => {
-    const product = await Product.findById(req.params.id)
+router.get('/product/:id', async (req, res) => {
+    const product = await Product.find({_id:req.params.id,soldOut:false})
     res.send(product)
+})
+router.get('/products/:category', async (req, res) => {
+    var category
+    switch (req.params.category) {
+        case 'cilciraq':
+            category = 'Çilçıraq'
+            break;
+        case 'bosqab-altligi':
+            category = 'Boşqab altlığı'
+            break;
+        case 'qazan-desti':
+            category = 'Qazan dəsti'
+            break;
+        case 'hediyyelik-qab':
+            category = 'Hədiyyəlik qab'
+            break;
+        case 'elektrik-aletleri':
+            category = 'Elektrikli alətlər'
+            break;
+        case 'qasiq-cengel-bicaq-desti':
+            category = 'Qaşıq-Çəngəl-Bıçaq dəsti'
+            break;
+        case 'bakal-qrafin-desti':
+            category = 'Bakal-Qrafin dəsti'
+            break;
+        case 'sufre-desti':
+            category = 'Süfrə dəsti'
+            break;
+
+        default:
+            category = 'Does not exist'
+            break;
+    }
+    const products = await Product.find({ soldOut: false, category })
+    res.send(products)
 })
 router.get('/data/pic/:id', async (req, res) => {
     const product = await Product.findById(req.params.id)
     res.set('Content-Type', 'image/png')
     res.send(product.image)
 })
-router.post('/data/product',upload.single('img'), async (req, res) => {
+router.post('/data/product', upload.single('img'), async (req, res) => {
     try {
         const { name, code, category, ingredientList, specList, subcate, pcs } = req.body
         var subCates = [];

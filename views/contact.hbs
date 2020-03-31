@@ -17,7 +17,7 @@
                     width="150px"></a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
                     </li>
                     <li class="nav-item">
@@ -26,7 +26,7 @@
                     <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/products">Məhsullar</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link hvr-bounce-to-top" href="/contact">Əlaqə</a>
                     </li>
                 </ul>
@@ -42,14 +42,16 @@
             </div>
         </div>
     </nav>
-    {{>jumbotron}}
-    <div class="container">
+    <div class="main container">
 
+        
+
+        {{>footer}}
     </div>
-    {{>footer}}
 
 
     {{>backToTop}}
+    {{>whatsAppHotkey}}
 </body>
 
 </html>

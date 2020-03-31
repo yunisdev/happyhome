@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>Happy Home</title>
     {{>libs}}
+
 </head>
 
 <body>
@@ -20,7 +21,7 @@
                     <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/places">Mağazalar</a>
                     </li>
                     <li class="nav-item">
@@ -33,7 +34,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav float-left ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a style="width:50px" class="nav-link hvr-bounce-to-top" href="/basket"><i
                                 class="fas fa-shopping-basket"></i></a>
                     </li>
@@ -42,8 +43,15 @@
             </div>
         </div>
     </nav>
-    <div class="container main">
 
+    <div class="main container">
+        <div style="margin-top: 100px;margin-bottom:100px" class="row">
+            <div class="header-line col-md-12">
+                <h4 class="text-center" style="font-size:xx-large">
+                    Səbət
+                </h4>
+            </div>
+        </div>
         {{>footer}}
     </div>
 

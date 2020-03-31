@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>Happy Home</title>
     {{>libs}}
+    <style>
+        .card{
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,13 +23,13 @@
                     width="150px"></a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/places">Mağazalar</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link hvr-bounce-to-top" href="/products">Məhsullar</a>
                     </li>
                     <li class="nav-item">
@@ -42,14 +48,21 @@
             </div>
         </div>
     </nav>
-    {{>jumbotron}}
-    <div class="container">
-        
+    <div class="container main">
+        <div style="margin-top: 100px;margin-bottom:100px" class="row">
+            <div class="header-line col-md-12">
+                <h4 class="text-center" style="font-size:xx-large">
+                    Kateqoriyalar
+                </h4>
+            </div>
+            {{>categoriesCarousel}}
+        </div>
+        {{>footer}}
     </div>
-    {{>footer}}
-    
-    
+
+
     {{>backToTop}}
+    {{>whatsAppHotkey}}
 </body>
 
 </html>

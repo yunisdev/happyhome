@@ -2,13 +2,12 @@ $main-red: #da291e;
 $main-black: #272727;
 $main-white: #fdfeff;
 $main-grey: #cecece;
-$main-dark-grey: #a5a5a5;
+$main-dark-grey: #8d8d8d;
 
 @media only screen and (max-width: 770px) {
   .header-line::before {
     display: none !important;
   }
-
 }
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
@@ -20,6 +19,21 @@ $main-dark-grey: #a5a5a5;
 body {
   background-color: $main-white;
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+  background: #e6e6e6;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+  border-radius: 5px;
+}
+
 .hvr-bounce-to-top::before {
   border-radius: 10px;
   background: $main-red;
@@ -48,12 +62,18 @@ body {
   }
 }
 .main {
-  margin-top: 50px !important;
+  margin-top: 100px !important;
   margin-bottom: 50px !important;
+}
+.primary-footer {
+  border-top: #cacaca 1.5px solid;
+  padding: 20px;
+  div div {
+    padding: 20px;
+  }
 }
 footer {
   background-color: transparent;
-  border-top: 2px solid $main-grey;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,9 +111,10 @@ footer {
   bottom: 30px;
   right: 30px;
   transition: 0.3s opacity ease-out;
-  height:50px;
-  width:50px;
-  padding:20px;
+  height: 50px;
+  width: 50px;
+  z-index: 999999999;
+  padding: 20px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -103,7 +124,7 @@ footer {
   i {
     font-size: 30px;
     text-align: center;
-    color:$main-white;
+    color: $main-white;
   }
   &:hover {
     opacity: 1;
@@ -240,19 +261,12 @@ form {
     border-radius: 100px;
   }
 }
-.item-card {
+.image-block {
   padding: 20px;
-  .item-card-inside {
-    border: 2px solid $main-grey;
-    .image-block {
-      padding: 20px;
-      transition: padding ease-out 0.3s;
-    }
-    .image-block:hover {
-      padding: 10px;
-    }
-    padding: 10px;
-  }
+  transition: padding ease-out 0.3s;
+}
+.image-block:hover {
+  padding: 10px;
 }
 .header-line::before {
   width: 100%;
@@ -269,7 +283,31 @@ form {
   justify-content: center;
   h4 {
     z-index: 100;
-    padding:0px 20px;
+    padding: 0px 20px;
     background-color: $main-white !important;
+  }
+}
+.card{
+  text-align: center;
+}
+.spec-card{
+  i{
+    font-size: 30px;
+  }
+  div{
+    padding:0;
+  }
+  padding:30px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:10px;
+  border-radius: 30px;
+  color:white;
+  transition: padding ease-out 0.3s;
+  background-color: $main-dark-grey;
+  text-align: center;
+  &:hover{
+    padding:30px;
   }
 }

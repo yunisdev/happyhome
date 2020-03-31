@@ -3,8 +3,8 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 const isAuth = require('../middleware/isAuth')
 
-router.get('/admin', isAuth,(req, res) => {
-    if(req.isAuth){
+router.get('/admin', isAuth, (req, res) => {
+    if (req.isAuth) {
         return res.redirect('/panel')
     }
     res.render('admin')
@@ -23,4 +23,5 @@ router.get('/panel', auth, (req, res) => {
 router.get('/logout', auth, (req, res) => {
     res.clearCookie('auth').redirect('/admin')
 })
+
 module.exports = router

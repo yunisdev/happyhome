@@ -11,6 +11,19 @@
 body {
   background-color: #fdfeff; }
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+  background: #e6e6e6;
+  border-radius: 5px; }
+
+::-webkit-scrollbar-button {
+  display: none; }
+
+::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+  border-radius: 5px; }
+
 .hvr-bounce-to-top::before {
   border-radius: 10px;
   background: #da291e; }
@@ -37,12 +50,17 @@ body {
     color: #fdfeff !important; }
 
 .main {
-  margin-top: 50px !important;
+  margin-top: 100px !important;
   margin-bottom: 50px !important; }
+
+.primary-footer {
+  border-top: #cacaca 1.5px solid;
+  padding: 20px; }
+  .primary-footer div div {
+    padding: 20px; }
 
 footer {
   background-color: transparent;
-  border-top: 2px solid #cecece;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,6 +97,7 @@ footer {
   transition: 0.3s opacity ease-out;
   height: 50px;
   width: 50px;
+  z-index: 999999999;
   padding: 20px;
   border-radius: 50%;
   display: flex;
@@ -98,7 +117,7 @@ footer {
 .bar3 {
   width: 25px;
   height: 3px;
-  background-color: #a5a5a5;
+  background-color: #8d8d8d;
   margin: 3px 0;
   transition: 0.4s; }
 
@@ -123,7 +142,7 @@ footer {
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
-    background: #a5a5a5;
+    background: #8d8d8d;
     border-radius: 50%;
     color: #fdfeff;
     transition: background 0.3s ease-out;
@@ -202,16 +221,12 @@ form .form-field {
     box-shadow: 50px 50px 100px #fdfeff, 50px -50px 100px #fdfeff, -50px 50px 100px #fdfeff, -50px -50px 100px #fdfeff;
     border-radius: 100px; }
 
-.item-card {
-  padding: 20px; }
-  .item-card .item-card-inside {
-    border: 2px solid #cecece;
-    padding: 10px; }
-    .item-card .item-card-inside .image-block {
-      padding: 20px;
-      transition: padding ease-out 0.3s; }
-    .item-card .item-card-inside .image-block:hover {
-      padding: 10px; }
+.image-block {
+  padding: 20px;
+  transition: padding ease-out 0.3s; }
+
+.image-block:hover {
+  padding: 10px; }
 
 .header-line::before {
   width: 100%;
@@ -230,3 +245,24 @@ form .form-field {
     z-index: 100;
     padding: 0px 20px;
     background-color: #fdfeff !important; }
+
+.card {
+  text-align: center; }
+
+.spec-card {
+  padding: 30px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border-radius: 30px;
+  color: white;
+  transition: padding ease-out 0.3s;
+  background-color: #8d8d8d;
+  text-align: center; }
+  .spec-card i {
+    font-size: 30px; }
+  .spec-card div {
+    padding: 0; }
+  .spec-card:hover {
+    padding: 30px; }
