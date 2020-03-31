@@ -4,6 +4,13 @@ $main-white: #fdfeff;
 $main-grey: #cecece;
 $main-dark-grey: #a5a5a5;
 
+@media only screen and (max-width: 770px) {
+  .header-line::before {
+    display: none !important;
+  }
+
+}
+
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 * {
   font-family: "Montserrat", sans-serif;
@@ -84,9 +91,19 @@ footer {
   bottom: 30px;
   right: 30px;
   transition: 0.3s opacity ease-out;
+  height:50px;
+  width:50px;
+  padding:20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $main-black;
   cursor: pointer;
   i {
     font-size: 30px;
+    text-align: center;
+    color:$main-white;
   }
   &:hover {
     opacity: 1;
@@ -234,6 +251,25 @@ form {
     .image-block:hover {
       padding: 10px;
     }
-    padding:10px
+    padding: 10px;
+  }
+}
+.header-line::before {
+  width: 100%;
+  height: 1px;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background: #cacaca;
+  left: 0;
+  top: 40%;
+}
+.header-line {
+  display: flex;
+  justify-content: center;
+  h4 {
+    z-index: 100;
+    padding:0px 20px;
+    background-color: $main-white !important;
   }
 }

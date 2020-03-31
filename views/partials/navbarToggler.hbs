@@ -1,14 +1,27 @@
-<button class="navbar-toggler" type="button">
-    <div data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-        aria-label="Toggle navigation" onclick="menuHamburger(this)" id="hamburger-x" class="container">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
+<div class="navbar-toggler">
+    <button class="navbar-toggler float-left ml-auto" type="button">
+        <div data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+            aria-label="Toggle navigation" onclick="menuHamburger(this)" id="hamburger-x" class="container">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+        <script>
+            let navbarIndexer = 0;
+            function menuHamburger(x) {
+                x.classList.toggle("change");
+            }
+        </script>
+    </button>
+    <a class="float-left ml-auto" href="/"><img src="/assets/logo2.png" width="150px"></a>
+    <div class="ml-auto ">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a style="width:50px" class="nav-link hvr-bounce-to-top" href="/basket"><i
+                        class="fas fa-shopping-basket"></i></a>
+            </li>
+
+        </ul>
     </div>
-    <script>
-        let navbarIndexer = 0;
-        function menuHamburger(x) {
-            x.classList.toggle("change");
-        }
-    </script>
-</button>
+</div>

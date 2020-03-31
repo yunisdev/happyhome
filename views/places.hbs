@@ -11,14 +11,16 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-md navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="/"><img src="/assets/logo2.png" width="200px"></a>
+
             {{>navbarToggler}}
+            <a class="collapse navbar-collapse navbar-brand float-left  ml-auto" href="/"><img src="/assets/logo2.png"
+                    width="150px"></a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
                         <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/places">Mağazalar</a>
                     </li>
                     <li class="nav-item">
@@ -28,17 +30,25 @@
                         <a class="nav-link hvr-bounce-to-top" href="/contact">Əlaqə</a>
                     </li>
                 </ul>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav float-left ml-auto">
+                    <li class="nav-item">
+                        <a style="width:50px" class="nav-link hvr-bounce-to-top" href="/basket"><i
+                                class="fas fa-shopping-basket"></i></a>
+                    </li>
 
+                </ul>
             </div>
         </div>
     </nav>
     {{>jumbotron}}
-    
+
     <div class="container">
-        
+
     </div>
     {{>footer}}
-    
+
     {{>backToTop}}
 </body>
 

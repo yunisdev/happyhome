@@ -1,0 +1,85 @@
+<div class="desktop-card-carousel row" style="margin-top: 30px;">
+    <div class="col-md-4 float-left">
+        <div class="card">
+            <img class="card-img-top img-fluid" src="http://placehold.it/800/" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">Card 1</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 float-left">
+        <div class="card">
+            <img class="card-img-top img-fluid" src="http://placehold.it/800/" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">Card 2</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 float-left">
+        <div class="card">
+            <img class="card-img-top img-fluid" width="800" src="http://placehold.it/800/" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">Card 3</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="newProductCarousel" class="navbar-toggler carousel slide mobil-card-carousel" data-ride="carousel">
+    <div class="carousel-inner row w-100 mx-auto">
+        <div class="carousel-item col-md-4 active">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="http://placehold.it/800/" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">Card 1</h4>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item col-md-4">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="http://placehold.it/800/" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">Card 2</h4>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item col-md-4">
+            <div class="card">
+                <img class="card-img-top img-fluid" width="800" src="http://placehold.it/800/" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">Card 3</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#newProductCarousel").on("slide.bs.carousel", function (e) {
+            var $e = $(e.relatedTarget);
+            var idx = $e.index();
+            var itemsPerSlide = 3;
+            var totalItems = $(".carousel-item").length;
+
+            if (idx >= totalItems - (itemsPerSlide - 1)) {
+                var it = itemsPerSlide - (totalItems - idx);
+                for (var i = 0; i < it; i++) {
+                    // append slides to end
+                    if (e.direction == "left") {
+                        $(".carousel-item")
+                            .eq(i)
+                            .appendTo(".carousel-inner");
+                    } else {
+                        $(".carousel-item")
+                            .eq(0)
+                            .appendTo($(this).find(".carousel-inner"));
+                    }
+                }
+            }
+        });
+    });
+
+</script>

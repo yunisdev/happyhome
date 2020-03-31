@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@media only screen and (max-width: 770px) {
+  .header-line::before {
+    display: none !important; } }
+
 * {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
@@ -73,9 +77,19 @@ footer {
   bottom: 30px;
   right: 30px;
   transition: 0.3s opacity ease-out;
+  height: 50px;
+  width: 50px;
+  padding: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #272727;
   cursor: pointer; }
   .back-to-top i {
-    font-size: 30px; }
+    font-size: 30px;
+    text-align: center;
+    color: #fdfeff; }
   .back-to-top:hover {
     opacity: 1; }
 
@@ -198,3 +212,21 @@ form .form-field {
       transition: padding ease-out 0.3s; }
     .item-card .item-card-inside .image-block:hover {
       padding: 10px; }
+
+.header-line::before {
+  width: 100%;
+  height: 1px;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background: #cacaca;
+  left: 0;
+  top: 40%; }
+
+.header-line {
+  display: flex;
+  justify-content: center; }
+  .header-line h4 {
+    z-index: 100;
+    padding: 0px 20px;
+    background-color: #fdfeff !important; }

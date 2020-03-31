@@ -37,7 +37,7 @@ router.get('/add-to-basket/:id', async (req, res) => {
 })
 
 router.get('/basket', (req, res) => {
-    res.send(req.cookies.basket)
+    res.json(req.cookies.basket)
 })
 
 module.exports = router
