@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+.back-to-top {
+  position: fixed;
+  opacity: 0.5;
+  bottom: 30px;
+  right: 30px;
+  transition: 0.3s opacity ease-out;
+  height: 50px;
+  width: 50px;
+  z-index: 999999999;
+  padding: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #272727;
+  cursor: pointer; }
+  .back-to-top i {
+    font-size: 30px;
+    text-align: center;
+    color: #fdfeff; }
+  .back-to-top:hover {
+    opacity: 1; }
+
+.onscreen-whatsapp {
+  text-decoration: none;
+  position: fixed;
+  top: 30vh;
+  right: 0;
+  z-index: 9999;
+  height: 70px;
+  width: 70px;
+  padding: 20px;
+  background-color: #25d366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; }
