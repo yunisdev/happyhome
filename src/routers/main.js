@@ -26,46 +26,60 @@ router.get('/products', (req, res) => {
 })
 
 router.get('/add-to-basket/:id', async (req, res) => {
-    const oldOrders = req.cookies.basket
-    const prod = await Product.findById(req.params.id)
+    var oldOrders = req.cookies.basket || ''
+    // const prod = await Product.findById(req.params.id) || ' sgsf'
+    const prod = true
     if (prod) {
         oldOrders += " " + req.params.id
         oldOrders = oldOrders.trim()
-        res.redirect('/products/' + req.params.id)
+        res.cookie('basket', oldOrders).redirect('/product/' + req.params.id)
     } else {
         res.status(404).redirect('/')
     }
 
 })
 
-router.get('/basket', (req, res) => {
-    if(req.cookies.basket){
+router.get('/basket', async (req, res) => {
+    if (req.cookies.basket) {
         var orders = req.cookies.basket.trim().split(' ')
-        orders = orders.filter((el)=>{
+        orders = orders.filter((el) => {
             return (el != '' && el != null)
         })
-        console.log(orders)
+        for (var i = 0; i < orders.length; i++) {
+            orders[i] = await Product.findById(orders[i])
+        }
     }
-    
-    res.render('basket',orders)
+    res.render('basket', { orders })
 })
+router.get('/clear-basket', (req, res) => [
+    res.clearCookie('basket').redirect('/basket')
+])
 
 router.post('/order', async (req, res) => {
     try {
-        const { name, phoneNum, email, address, notes } = req.body
-        var orderStr = req.cookies.basket.trim()
-        var orderArr = orderStr.split(' ')
-        var orders = []
-        for (var i = 0; i < orderArr.length; i++) {
-            orders.push({ itemID: new mongoose.Types.ObjectId(orderArr[i]) })
+        const { name, phoneNum, email, address = '', notes = '' } = req.body
+        if (req.cookies.basket) {
+            var orders = req.cookies.basket.trim().split(' ')
+            orders = orders.filter((el) => {
+                return (el != '' && el != null)
+            })
+            for (var i = 0; i < orders.length; i++) {
+                orders[i] = { itemID: new mongoose.Types.ObjectId(orders[i]) }
+            }
+        } else {
+            throw new Error('Please add an item')
         }
+
         const order = new Order({ name, phoneNum, email, address, notes, orders })
         await order.save()
-        res.clearCookie('basket').render('orderSuccess', { id: order._id })
+        res.clearCookie('basket').cookie('orderID', order._id).redirect('/order-success')
     } catch (e) {
-        console.log(e.message)
-        res.send()
+        res.send('Error ' + e.message)
     }
+})
+router.get('/order-success', (req, res) => {
+    const orderID = req.cookies.orderID
+    res.clearCookie('orderID').render('orderSuccess', { orderID })
 })
 
 module.exports = router

@@ -25,7 +25,11 @@ const orderSchema = mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             required:true
         }
-    }]
+    }],
+    isDone:{
+        type:Boolean,
+        default:false
+    }
 },{
     timestamps:true
 })

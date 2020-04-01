@@ -11,10 +11,11 @@ $main-dark-grey: #8d8d8d;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
 * {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  outline: none;
+  outline: none!important;
 }
 body {
   background-color: $main-white;
@@ -298,16 +299,23 @@ form {
     padding:0;
   }
   padding:30px 10px;
+  opacity: 0.6;
   display: flex;
   justify-content: center;
   align-items: center;
   margin:10px;
   border-radius: 30px;
   color:white;
-  transition: padding ease-out 0.3s;
+  transition-timing-function: ease-out;
+  transition: padding 0.3s,
+              opacity 0.3s;
   background-color: $main-dark-grey;
   text-align: center;
   &:hover{
     padding:30px;
+    opacity: 1;
   }
+}
+.card{
+  cursor: pointer;
 }

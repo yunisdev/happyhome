@@ -53,7 +53,7 @@
             <div class="row col-md-12">
                 {{#each products}}
                 <div class="col-md-3 float-left">
-                    <div class="card">
+                    <div class="card" onclick="location.href='/product/{{this._id}}'">
                         <div class="image-block">
                             <img class="card-img-top img-fluid" src="/data/pic/{{this._id}}" alt="Card image cap">
                         </div>

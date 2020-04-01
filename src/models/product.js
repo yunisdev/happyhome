@@ -5,11 +5,9 @@ const productsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    pcs: [{
-        text: {
-            type: String
-        }
-    }],
+    pcs: {
+        type: String
+    },
     category: {
         type: String
     },

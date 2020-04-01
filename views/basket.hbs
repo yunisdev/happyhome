@@ -51,6 +51,33 @@
                     Səbət
                 </h4>
             </div>
+            {{#if orders}}
+            <div class="container">
+            {{#each orders}}
+            <div class="container col-md-6">
+                <div class="col-md-12 card float-left row" style="padding:20px;cursor: default;margin-top:50px">
+                    <div class="col-md-12 text-left float-left padding-zero" style="border-radius: 20px!important;">
+                        <img class="col-md-3 float-left" src="/data/pic/{{this._id}}">
+                        <div class="container col-md-9">
+                            <p class="col-md-12">Ad: {{this.name}}</p>
+                            <p class="col-md-12">Kod: {{this.code}}</p>
+                            <p class="text-muted col-md-12">ID: {{this._id}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            {{/each}}
+
+            {{>orderForm}}
+
+            {{else}}
+            <div class="col-md-12" style="margin-top:50px">
+                <h4 class="text-center text-muted" style="font-size:x-large">
+                    Səbətinizdə heç bir məhsul yoxdur
+                </h4>
+            </div>
+            {{/if}}
         </div>
         {{>footer}}
     </div>

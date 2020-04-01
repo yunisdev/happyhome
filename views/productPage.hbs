@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html translate="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Happy Home</title>
+    {{>libs}}
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-md navbar-light">
+        <div class="container">
+
+            {{>navbarToggler}}
+            <a class="collapse navbar-collapse navbar-brand float-left  ml-auto" href="/"><img src="/assets/logo2.png"
+                    width="150px"></a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-bounce-to-top" href="/places">Mağazalar</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link hvr-bounce-to-top" href="/products">Məhsullar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-bounce-to-top" href="/contact">Əlaqə</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav float-left ml-auto">
+                    <li class="nav-item">
+                        <a style="width:50px" class="nav-link hvr-bounce-to-top" href="/basket"><i
+                                class="fas fa-shopping-basket"></i></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main container">
+        <div style="margin-top: 100px;margin-bottom:100px" class="row">
+            <div class="header-line col-md-12">
+                <h4 class="text-center" style="font-size:xx-large">
+                    {{product.name}}
+                </h4>
+            </div>
+            {{#if soldOut}}
+            <h4 class="text-muted text-center col-md-12" style="font-size:x-large">
+                Bu məhsul bitmişdir
+            </h4>
+            {{/if}}
+            <div class="row col-md-12" style="{{#if soldOut}}pointer-events: none;opacity: 0.4;{{/if}}">
+                <div class="col-md-6 float-left" style="padding-top: 20px;">
+                    <div class="card">
+                        <div class="image-block">
+                            <img onclick="modalImage('{{product._id}}')" class="card-img-top img-fluid"
+                                src="/data/pic/{{product._id}}" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Adı: {{product.name}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 float-left" style="padding-top: 20px;">
+                    <div class="card" style="cursor: default;">
+                        <div class="card-body text-left">
+                            <p style="font-size: x-large;">Kod: {{product.code}}</p>
+                            <p style="font-size: x-large;" class="text-muted">ID: {{product._id}}</p>
+                            <p style="font-size: x-large;margin-top:30px;">Parça sayı: {{product.pcs}}</p>
+                            <p style="font-size: x-large;margin-top:30px;">Kateqoriya: {{product.category}}</p>
+                            {{#if product.subCates}}
+                            <p style="font-size: x-large;margin-top:30px">Alt kateqoriya(lar):
+                                {{#each product.subCates}}{{this.text}}{{/each}}</p>
+                            {{/if}}
+                            <p style="font-size: x-large;margin-top:30px;">İçindəkilər:</p>
+                            {{#each product.ingredients}}
+                            <p style="font-size: large;" class="text-muted">{{this.text}}</p>
+                            {{/each}}
+                            {{#if specs}}
+                            <p style="font-size: x-large;margin-top:30px;">Xüsusiyyətlər:</p>
+                            {{#each product.specs}}
+                            <p style="font-size: large;" class="text-muted">{{this.text}}</p>
+                            {{/each}}
+                            {{/if}}
+                            <button style="margin-top:50px;font-size:25px" onclick="location.href='/add-to-basket/{{product._id}}'" class="btn btn-danger col-md-6 offset-md-3">Səbətə əlavə et</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{>footer}}
+    </div>
+
+
+    {{>backToTop}}
+    {{>whatsAppHotkey}}
+    <script>
+        const modalImage = (id) => {
+            Swal.fire({
+                html: `
+                <div class="image-block">
+                <img class="col-md-12 card-img-top img-fluid" src="/data/pic/${id}" alt="Card image cap">
+                </div>
+                `,
+
+                showConfirmButton: false,
+                showCloseButton: true,
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -20,8 +20,22 @@ router.get('/data/products', auth, async (req, res) => {
     res.send(products)
 })
 router.get('/product/:id', async (req, res) => {
-    const product = await Product.find({_id:req.params.id,soldOut:false})
-    res.send(product)
+    try {
+        const product = await Product.findOne({ _id: req.params.id })
+        if (!product) {
+            throw new Error()
+        }
+        if (product.soldOut) {
+            var soldOut = 'true'
+        }
+        var Basket = req.cookies.basket || ''
+        var basket = Basket.trim().split(' ')
+        var addedToBasket = basket.find(el => el == req.params.id)
+        res.render('productPage', { product, soldOut, addedToBasket })
+    }catch(e){
+        console.log(e.message)
+        res.render('404')
+    }
 })
 router.get('/products/:category', async (req, res) => {
     var category
@@ -55,8 +69,8 @@ router.get('/products/:category', async (req, res) => {
             category = 'Does not exist'
             break;
     }
-    const products = await Product.find({ soldOut: false, category }).sort({createdAt:-1})
-    res.render('productsByCategory',{products,category})
+    const products = await Product.find({ soldOut: false, category }).sort({ createdAt: -1 })
+    res.render('productsByCategory', { products, category })
 })
 router.get('/data/pic/:id', async (req, res) => {
     const product = await Product.findById(req.params.id)
@@ -73,13 +87,7 @@ router.post('/data/product', upload.single('img'), async (req, res) => {
                 subCates[i] = { text: subCates[i].trim() }
             }
         }
-        var PCS = [];
-        if (pcs) {
-            PCS = pcs.split(',')
-            for (var i = 0; i < PCS.length; i++) {
-                PCS[i] = { text: PCS[i].trim() }
-            }
-        }
+
         var specs = []
         if (specList) {
             let spc = specList.split(',')
@@ -99,7 +107,7 @@ router.post('/data/product', upload.single('img'), async (req, res) => {
             ingredients.push({ text: ing[i] })
         }
         const product = new Product({
-            name, pcs: PCS, code, ingredients, specs, image: buffer, category, subCates
+            name, pcs, code, ingredients, specs, image: buffer, category, subCates
         })
         await product.save()
         res.status(200).redirect('/panel')
