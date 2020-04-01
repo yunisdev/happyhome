@@ -9,11 +9,6 @@ router.get('/', (req, res) => {
         pageName: 'Ana Səhifə'
     })
 })
-router.get('/places', (req, res) => {
-    res.render('places', {
-        pageName: 'Mağazalar'
-    })
-})
 router.get('/contact', (req, res) => {
     res.render('contact', {
         pageName: 'Əlaqə'
