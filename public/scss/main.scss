@@ -52,7 +52,9 @@ body {
 .color-main-red {
   color: $main-red !important;
 }
-
+.main-red{
+  background-color: $main-red!important;
+}
 .padding-zero {
   padding: 0;
 }

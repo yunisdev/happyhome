@@ -47,3 +47,20 @@
 .change .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -5px);
   transform: rotate(45deg) translate(-8px, -5px); }
+
+.dropdown:hover > .dropdown-menu {
+  display: block; }
+
+.dropdown > .dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none; }
+
+.cateCard {
+  padding: 20px;
+  margin: 5px;
+  background-color: #cecece;
+  float: left;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white !important;
+  text-decoration: none !important; }

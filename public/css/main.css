@@ -46,6 +46,9 @@ body {
 .color-main-red {
   color: #da291e !important; }
 
+.main-red {
+  background-color: #da291e !important; }
+
 .padding-zero {
   padding: 0; }
 

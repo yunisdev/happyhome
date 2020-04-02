@@ -55,10 +55,9 @@
             <div class="row col-md-12" style="{{#if soldOut}}pointer-events: none;opacity: 0.4;{{/if}}">
                 <div class="col-md-6 float-left" style="padding-top: 20px;">
                     <div class="card">
-                        <div class="image-block">
-                            <img onclick="modalImage('{{product._id}}')" class="card-img-top img-fluid"
-                                src="/data/pic/{{product._id}}" alt="Card image cap">
-                        </div>
+                        <a class="image-block image-popup" href="/data/pic/{{product._id}}">
+                            <img class="card-img-top img-fluid" src="/data/pic/{{product._id}}" alt="Card image cap">
+                        </a>
                         <div class="card-body">
                             <h4 class="card-title">Adı: {{product.name}}</h4>
                         </div>
@@ -117,6 +116,9 @@
                 showCloseButton: true,
             })
         }
+        $('.image-popup').magnificPopup({
+            type: 'image'
+        });
     </script>
 </body>
 
