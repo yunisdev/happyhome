@@ -3,10 +3,12 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const Product = require('../models/product')
 const Order = require('../models/order')
+const Subs = require('../models/subscriber')
 
 router.get('/', (req, res) => {
     res.render('index', {
-        pageName: 'Ana Səhifə'
+        pageName: 'Ana Səhifə',
+        subscribed:req.cookies.subscribed
     })
 })
 router.get('/contact', (req, res) => {
@@ -86,6 +88,13 @@ router.post('/order', async (req, res) => {
 router.get('/order-success', (req, res) => {
     const orderID = req.cookies.orderID
     res.clearCookie('orderID').render('orderSuccess', { orderID })
+})
+
+router.post('/subscribe', async (req, res) => {
+    const { email } = req.body
+    const sub = new Subs({email})
+    await sub.save()
+    res.cookie('subscribed','yes').redirect('/')
 })
 
 module.exports = router
