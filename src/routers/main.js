@@ -22,12 +22,23 @@ router.get('/products', (req, res) => {
 
 router.get('/add-to-basket/:id', async (req, res) => {
     var oldOrders = req.cookies.basket || ''
-    // const prod = await Product.findById(req.params.id) || ' sgsf'
-    const prod = true
+    const prod = await Product.findById(req.params.id)
     if (prod) {
         oldOrders += " " + req.params.id
         oldOrders = oldOrders.trim()
         res.cookie('basket', oldOrders).redirect('/product/' + req.params.id)
+    } else {
+        res.status(404).redirect('/')
+    }
+
+})
+router.get('/buy/:id', async (req, res) => {
+    var oldOrders = req.cookies.basket || ''
+    const prod = await Product.findById(req.params.id)
+    if (prod) {
+        oldOrders += " " + req.params.id
+        oldOrders = oldOrders.trim()
+        res.cookie('basket', oldOrders).redirect('/basket#formAutoScroll')
     } else {
         res.status(404).redirect('/')
     }

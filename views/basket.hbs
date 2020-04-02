@@ -15,14 +15,11 @@
 
             {{>navbarToggler}}
             <a class="collapse navbar-collapse navbar-brand float-left  ml-auto" href="/"><img src="/assets/logo2.png"
-                    width="150px"></a>
+                    width="200px"></a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hvr-bounce-to-top" href="/places">Mağazalar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/products">Məhsullar</a>
@@ -52,23 +49,27 @@
                 </h4>
             </div>
             {{#if orders}}
-            <div class="container">
-            {{#each orders}}
-            <div class="container col-md-6">
-                <div class="col-md-12 card float-left row" style="padding:20px;cursor: default;margin-top:50px">
-                    <div class="col-md-12 text-left float-left padding-zero" style="border-radius: 20px!important;">
-                        <img class="col-md-3 float-left" src="/data/pic/{{this._id}}">
-                        <div class="container col-md-9">
-                            <p class="col-md-12">Ad: {{this.name}}</p>
-                            <p class="col-md-12">Kod: {{this.code}}</p>
-                            <p class="text-muted col-md-12">ID: {{this._id}}</p>
+            <div class="container text-center">
+                {{#each orders}}
+                <div class="container col-md-6 float-left">
+                    <div class="col-md-12 card float-left row" style="padding:20px;cursor: default;margin-top:50px">
+                        <div class="col-md-12 text-left float-left padding-zero" style="border-radius: 20px!important;">
+                            <img class="col-md-3 float-left" src="/data/pic/{{this._id}}">
+                            <div class="container col-md-9">
+                                <p class="col-md-12">Ad: {{this.name}}</p>
+                                <p class="col-md-12">Kod: {{this.code}}</p>
+                                <p class="text-muted col-md-12">ID: {{this._id}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {{/each}}
+                <div class="container col-md-12 float-left">
+                    <div class="col-md-12" style="padding:20px;cursor: default;margin-top:50px">
+                        <button class="btn btn-danger" style="font-size: x-large;" onclick="location.href='/clear-basket'">Səbəti təmizlə</button>
+                    </div>
+                </div>
             </div>
-            </div>
-            {{/each}}
-
             {{>orderForm}}
 
             {{else}}

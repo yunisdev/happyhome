@@ -14,14 +14,11 @@
 
             {{>navbarToggler}}
             <a class="collapse navbar-collapse navbar-brand float-left  ml-auto" href="/"><img src="/assets/logo2.png"
-                    width="150px"></a>
+                    width="200px"></a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hvr-bounce-to-top" href="/places">Mağazalar</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link hvr-bounce-to-top" href="/products">Məhsullar</a>
@@ -88,7 +85,13 @@
                             <p style="font-size: large;" class="text-muted">{{this.text}}</p>
                             {{/each}}
                             {{/if}}
-                            <button style="margin-top:50px;font-size:25px" onclick="location.href='/add-to-basket/{{product._id}}'" class="btn btn-danger col-md-6 offset-md-3">Səbətə əlavə et</button>
+                            <button style="margin-top:50px;font-size:20px"
+                                onclick="location.href='/add-to-basket/{{product._id}}'"
+                                class="btn btn-danger float-left col-md-5">Səbətə əlavə et</button>
+
+                            <button style="margin-top:50px;font-size:20px"
+                                onclick="location.href='/buy/{{product._id}}'"
+                                class="float-left btn btn-danger float-left col-md-5 offset-md-2">Satın al</button>
                         </div>
                     </div>
                 </div>
