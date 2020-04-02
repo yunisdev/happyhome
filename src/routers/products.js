@@ -52,7 +52,7 @@ router.get('/products/:category', async (req, res) => {
         case 'hediyyelik-qab':
             category = 'Hədiyyəlik qab'
             break;
-        case 'elektrik-aletleri':
+        case 'elektrikli-alet':
             category = 'Elektrikli alətlər'
             break;
         case 'qasiq-cengel-bicaq-desti':
@@ -66,7 +66,7 @@ router.get('/products/:category', async (req, res) => {
             break;
 
         default:
-            category = 'Does not exist'
+            category = 'Belə bir kateqoriya yoxdur'
             break;
     }
     const products = await Product.find({ soldOut: false, category }).sort({ createdAt: -1 })

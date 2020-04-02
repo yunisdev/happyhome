@@ -3,7 +3,8 @@
         <div class="col-md-4">
             <h5 style="font-size:x-large;margin-bottom:20px">Kateqoriyalar</h5>
             <p><a href="/products/sufre-desti" style="font-size: medium;">Süfrə dəsti</a></p>
-            <p><a href="/products/qasiq-cengel-bicaq-desti" style="font-size: medium;">Qaşıq-Çəngəl-Bıçaq dəstləri</a></p>
+            <p><a href="/products/qasiq-cengel-bicaq-desti" style="font-size: medium;">Qaşıq-Çəngəl-Bıçaq dəstləri</a>
+            </p>
             <p><a href="/products/bakal-qrafin-desti" style="font-size: medium;">Bakal-Qrafin dəstləri</a></p>
             <p><a href="/products/bosqab-altligi" style="font-size: medium;">Boşqab altlığı</a></p>
             <p><a href="/products/qazan-desti" style="font-size: medium;">Qazan dəsti</a></p>
@@ -29,10 +30,13 @@
     </div>
 </div>
 <div class="container col-md-12 text-center {{#if subscribed}}hidden{{/if}}">
-    <h4 class="col-md-8 offset-md-2" style="font-size: x-large;">Yeniliklərdən və Endirimlərdən xəbərdar olmaq istəyirsinizsə , <b style="font-size: x-large;">Abunə Olun</b></h4>
-    
+    <h4 class="col-md-8 offset-md-2" style="font-size: x-large;">Yeniliklərdən və Endirimlərdən xəbərdar olmaq
+        istəyirsinizsə , <b style="font-size: x-large;">Abunə Olun</b></h4>
+
     <form action="/subscribe" method="POST" class="col-md-8 offset-md-2" style="padding:50px">
-        <input name="email" placeholder="E-poçt adresiniz..." style="margin: 10px;" class="form-control col-md-8 float-left" type="email"><button style="margin:10px" type="submit" class="col-md-3 float-left btn btn-danger">ABUNƏ OL</button>
+        <input name="email" placeholder="E-poçt adresiniz..." style="margin: 10px;"
+            class="form-control col-md-8 float-left" type="email"><button style="margin:10px" type="submit"
+            class="col-md-3 float-left btn btn-danger">ABUNƏ OL</button>
     </form>
 </div>
 <footer style="margin-top:50px" class="container">
@@ -55,3 +59,31 @@
         </div>
     </div>
 </footer>
+
+<script>
+    const $dropdown = $(".dropdown");
+    const $dropdownToggle = $(".dropdown-toggle");
+    const $dropdownMenu = $(".dropdown-menu");
+    const showClass = "show";
+
+    $(window).on("load resize", function () {
+        if (this.matchMedia("(min-width: 768px)").matches) {
+            $dropdown.hover(
+                function () {
+                    const $this = $(this);
+                    $this.addClass(showClass);
+                    $this.find($dropdownToggle).attr("aria-expanded", "true");
+                    $this.find($dropdownMenu).addClass(showClass);
+                },
+                function () {
+                    const $this = $(this);
+                    $this.removeClass(showClass);
+                    $this.find($dropdownToggle).attr("aria-expanded", "false");
+                    $this.find($dropdownMenu).removeClass(showClass);
+                }
+            );
+        } else {
+            $dropdown.off("mouseenter mouseleave");
+        }
+    });
+</script>
