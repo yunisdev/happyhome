@@ -73,4 +73,9 @@
   cursor: pointer;
   color:white!important;
   text-decoration: none!important;
+  opacity: 0.7;
+  transition: ease-out 0.3s opacity ;
+}
+.cateCard:hover{
+  opacity: 1;
 }
