@@ -23,6 +23,9 @@ app.use(productRouter)
 const adminRouter = require('./routers/admin')
 app.use(adminRouter)
 
+app.get('*', (req, res) => [
+    res.render('404')
+])
 
 app.listen(port, () => {
     console.log(`Server is running on ${port}`)

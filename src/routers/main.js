@@ -12,14 +12,10 @@ router.get('/', (req, res) => {
     })
 })
 router.get('/contact', (req, res) => {
-    res.render('contact', {
-        pageName: 'Əlaqə'
-    })
+    res.render('contact')
 })
 router.get('/products', (req, res) => {
-    res.render('products', {
-        pageName: 'Məhsullar'
-    })
+    res.render('products')
 })
 
 router.get('/add-to-basket/:id', async (req, res) => {
