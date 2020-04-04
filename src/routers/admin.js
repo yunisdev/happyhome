@@ -7,7 +7,9 @@ router.get('/admin', isAuth, (req, res) => {
     if (req.isAuth) {
         return res.redirect('/panel')
     }
-    res.render('admin')
+    res.render('admin',{
+        subscribed: req.cookies.subscribed
+    })
 })
 
 router.post('/login', (req, res) => {
@@ -17,7 +19,9 @@ router.post('/login', (req, res) => {
 })
 
 router.get('/panel', auth, (req, res) => {
-    res.render('panel')
+    res.render('panel',{
+        subscribed: req.cookies.subscribed
+    })
 })
 
 router.get('/logout', auth, (req, res) => {

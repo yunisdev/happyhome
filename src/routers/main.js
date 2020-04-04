@@ -7,15 +7,18 @@ const Subs = require('../models/subscriber')
 
 router.get('/', (req, res) => {
     res.render('index', {
-        pageName: 'Ana Səhifə',
-        subscribed:req.cookies.subscribed
+        subscribed: req.cookies.subscribed
     })
 })
 router.get('/contact', (req, res) => {
-    res.render('contact')
+    res.render('contact', {
+        subscribed: req.cookies.subscribed
+    })
 })
 router.get('/products', (req, res) => {
-    res.render('products')
+    res.render('products', {
+        subscribed: req.cookies.subscribed
+    })
 })
 
 router.get('/add-to-basket/:id', async (req, res) => {
@@ -53,7 +56,9 @@ router.get('/basket', async (req, res) => {
             orders[i] = await Product.findById(orders[i])
         }
     }
-    res.render('basket', { orders })
+    res.render('basket', {
+        orders, subscribed: req.cookies.subscribed
+    })
 })
 router.get('/clear-basket', (req, res) => [
     res.clearCookie('basket').redirect('/basket')
@@ -83,14 +88,16 @@ router.post('/order', async (req, res) => {
 })
 router.get('/order-success', (req, res) => {
     const orderID = req.cookies.orderID
-    res.clearCookie('orderID').render('orderSuccess', { orderID })
+    res.clearCookie('orderID').render('orderSuccess', {
+        orderID, subscribed: req.cookies.subscribed
+    })
 })
 
 router.post('/subscribe', async (req, res) => {
     const { email } = req.body
-    const sub = new Subs({email})
+    const sub = new Subs({ email })
     await sub.save()
-    res.cookie('subscribed','yes').redirect('/')
+    res.cookie('subscribed', 'yes').redirect('/')
 })
 
 module.exports = router

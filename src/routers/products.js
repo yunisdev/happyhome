@@ -31,10 +31,10 @@ router.get('/product/:id', async (req, res) => {
         var Basket = req.cookies.basket || ''
         var basket = Basket.trim().split(' ')
         var addedToBasket = basket.find(el => el == req.params.id)
-        res.render('productPage', { product, soldOut, addedToBasket })
-    }catch(e){
+        res.render('productPage', { product, soldOut, addedToBasket,subscribed: req.cookies.subscribed })
+    } catch (e) {
         console.log(e.message)
-        res.render('404')
+        res.render('404',{subscribed: req.cookies.subscribed})
     }
 })
 router.get('/products/:category', async (req, res) => {
@@ -70,7 +70,7 @@ router.get('/products/:category', async (req, res) => {
             break;
     }
     const products = await Product.find({ soldOut: false, category }).sort({ createdAt: -1 })
-    res.render('productsByCategory', { products, category })
+    res.render('productsByCategory', { products, category, subscribed: req.cookies.subscribed })
 })
 router.get('/data/pic/:id', async (req, res) => {
     const product = await Product.findById(req.params.id)
