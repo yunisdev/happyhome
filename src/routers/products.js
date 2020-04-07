@@ -16,7 +16,7 @@ const upload = multer({
     }
 })
 router.get('/data/products', auth, async (req, res) => {
-    const products = await Product.find({ soldOut: false })
+    const products = await Product.find({ soldOut: false }).sort({createdAt:-1})
     res.send(products)
 })
 router.get('/product/:id', async (req, res) => {

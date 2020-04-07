@@ -63,7 +63,12 @@ router.get('/basket', async (req, res) => {
 router.get('/clear-basket', (req, res) => [
     res.clearCookie('basket').redirect('/basket')
 ])
-
+router.get('/data/orders', async (req, res) => {
+    const orders = await Order.find({
+        isDone:false
+    }).sort({createdAt:-1})
+    res.send(orders)
+})
 router.post('/order', async (req, res) => {
     try {
         const { name, phoneNum, email, address = '', notes = '' } = req.body
