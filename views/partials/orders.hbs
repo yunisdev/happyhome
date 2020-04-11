@@ -13,10 +13,11 @@
                             <p class="" style="font-size: x-large;">Sifarişlər</p>
                         </div>
                         {{#each this.orders}}
-                        <div class="col-md-6" style="padding:20px">
-                            <div onclick="window.open('/product/{{this.itemID}}')" class="card row" style="padding:10px">
+                        <div class="col-md-12" style="padding:20px;float:left">
+                            <div class="card row"
+                                style="padding:10px">
                                 <div class="col-md-12 float-left">
-                                    <img class="col-md-8" src="/data/pic/{{this.itemID}}">
+                                    <img onclick="window.open('/product/{{this.itemID}}')" class="col-md-2" src="/data/pic/{{this.itemID}}">
                                 </div>
                                 <div class="col-md-12 float-left" style="padding-top:10px">
                                     <p class="text-muted">ID: {{this.itemID}}</p>

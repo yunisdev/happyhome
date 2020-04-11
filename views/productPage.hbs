@@ -100,11 +100,11 @@
                             {{/each}}
                             {{/if}}
                             <button style="margin-top:50px;font-size:20px"
-                                onclick="window.open('/add-to-basket/{{product._id}}')"
+                                onclick="location.href='/add-to-basket/{{product._id}}'"
                                 class="btn btn-danger float-left col-md-5">Səbətə əlavə et</button>
 
                             <button style="margin-top:50px;font-size:20px"
-                                onclick="window.open('/buy/{{product._id}}')"
+                                onclick="location.href='/buy/{{product._id}}'"
                                 class="float-left btn btn-danger float-left col-md-5 offset-md-2">Satın al</button>
                         </div>
                     </div>
