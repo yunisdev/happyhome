@@ -5,7 +5,7 @@
             <div class="col-md-12" style="margin-top:50px" id="itemsContainer">
                 {{#each products}}
                 <div class="col-md-4" style="padding:20px">
-                    <div onclick="location.href='/product/{{this._id}}'" class="card row" style="padding:10px">
+                    <div onclick="window.open('/product/{{this._id}}')" class="card row" style="padding:10px">
                         <div class="col-md-12 float-left">
                             <img class="col-md-12" src="/data/pic/{{this._id}}">
                         </div>
@@ -15,11 +15,11 @@
                             <p>Code: {{this.code}}</p>
                         </div>
                         <div class="col-md-12 float-left">
-                            <button onclick="location.href='/product/{{this._id}}'"
+                            <button onclick="window.open('/product/{{this._id}}')"
                                 class="col-md-12 float-left btn btn-success" style="margin:5px">View</button>
-                            <button onclick="location.href='/product/delete/{{this._id}}'"
+                            <button onclick="window.open('/product/delete/{{this._id}}')"
                                 class="col-md-12 float-left btn btn-danger" style="margin:5px">Delete</button>
-                            <button onclick="location.href='/product/soldout/{{this._id}}'"
+                            <button onclick="window.open('/product/soldout/{{this._id}}')"
                                 class="col-md-12 float-left btn btn-secondary" style="margin:5px">Sold Out / In
                                 Stock</button>
                         </div>
