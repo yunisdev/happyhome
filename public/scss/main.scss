@@ -55,6 +55,13 @@ body {
 .main-red{
   background-color: $main-red!important;
 }
+.hover-opacity{
+  opacity: 0.5;
+  transition:opacity ease-out 0.3s;
+  &:hover{
+    opacity: 1;
+  }
+}
 .padding-zero {
   padding: 0;
 }
@@ -94,4 +101,7 @@ body {
 }
 #categoriesDropdown{
   margin-top: 40px;display:flex;position:fixed;left:0;justify-content:center
+}
+a[href="https://elfsight.com/instagram-feed-instashow/?utm_source=websites&utm_medium=clients&utm_content=instagram-feed&utm_term=localhost:3000&utm_campaign=free-widget"]{
+  opacity: 0!important;
 }

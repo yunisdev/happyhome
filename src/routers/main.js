@@ -65,8 +65,8 @@ router.get('/clear-basket', (req, res) => [
 ])
 router.get('/data/orders', async (req, res) => {
     const orders = await Order.find({
-        isDone:false
-    }).sort({createdAt:-1})
+        isDone: false
+    }).sort({ createdAt: -1 })
     res.send(orders)
 })
 router.post('/order', async (req, res) => {
@@ -104,5 +104,7 @@ router.post('/subscribe', async (req, res) => {
     await sub.save()
     res.cookie('subscribed', 'yes').redirect('/')
 })
-
+router.get('/subscribe', (req, res) => {
+    res.render('subscribe')
+})
 module.exports = router

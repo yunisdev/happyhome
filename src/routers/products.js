@@ -16,7 +16,7 @@ const upload = multer({
     }
 })
 router.get('/data/products', auth, async (req, res) => {
-    const products = await Product.find({ soldOut: false }).sort({createdAt:-1})
+    const products = await Product.find({ soldOut: false }).sort({ createdAt: -1 })
     res.send(products)
 })
 router.get('/product/:id', async (req, res) => {
@@ -31,10 +31,10 @@ router.get('/product/:id', async (req, res) => {
         var Basket = req.cookies.basket || ''
         var basket = Basket.trim().split(' ')
         var addedToBasket = basket.find(el => el == req.params.id)
-        res.render('productPage', { product, soldOut, addedToBasket,subscribed: req.cookies.subscribed })
+        res.render('productPage', { product, soldOut, addedToBasket, subscribed: req.cookies.subscribed })
     } catch (e) {
         console.log(e.message)
-        res.render('404',{subscribed: req.cookies.subscribed})
+        res.render('404', { subscribed: req.cookies.subscribed })
     }
 })
 router.get('/products/:category', async (req, res) => {
@@ -114,6 +114,19 @@ router.post('/data/product', upload.single('img'), async (req, res) => {
     } catch (e) {
         res.send(e.message)
     }
+})
+router.get('/product/soldout/:id', auth, async (req, res) => {
+    const product = await Product.findById(req.params.id)
+    if (product.soldOut == true) {
+        await Product.findByIdAndUpdate(req.params.id, {
+            soldOut: false
+        })
+    } else {
+        await Product.findByIdAndUpdate(req.params.id, {
+            soldOut: true
+        })
+    }
+    res.redirect('/panel')
 })
 
 module.exports = router

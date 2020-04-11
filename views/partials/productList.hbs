@@ -5,7 +5,7 @@
             <div class="col-md-12" style="margin-top:50px" id="itemsContainer">
                 {{#each products}}
                 <div class="col-md-4" style="padding:20px">
-                    <div onclick="window.open('/product/{{this._id}}')" class="card row" style="padding:10px">
+                    <div class="card row" style="padding:10px">
                         <div class="col-md-12 float-left">
                             <img class="col-md-12" src="/data/pic/{{this._id}}">
                         </div>
@@ -13,15 +13,16 @@
                             <p class="text-muted">ID: {{this._id}}</p>
                             <p>Name: {{this.name}}</p>
                             <p>Code: {{this.code}}</p>
+                            <p class="text-muted">Hal hazırda {{#if this.soldOut}}bitib{{else}}mövcuddur{{/if}}</p>
                         </div>
                         <div class="col-md-12 float-left">
                             <button onclick="window.open('/product/{{this._id}}')"
-                                class="col-md-12 float-left btn btn-success" style="margin:5px">View</button>
-                            <button onclick="window.open('/product/delete/{{this._id}}')"
-                                class="col-md-12 float-left btn btn-danger" style="margin:5px">Delete</button>
-                            <button onclick="window.open('/product/soldout/{{this._id}}')"
-                                class="col-md-12 float-left btn btn-secondary" style="margin:5px">Sold Out / In
-                                Stock</button>
+                                class="col-md-12 float-left btn btn-success" style="margin:5px">Bax</button>
+                            <button onclick="location.href='/product/delete/{{this._id}}'"
+                                class="col-md-12 float-left btn btn-danger" style="margin:5px">Sil</button>
+                            <button onclick="location.href='/product/soldout/{{this._id}}'"
+                                class="col-md-12 float-left btn btn-secondary" style="margin:5px">
+                                {{#if this.soldOut}}Mövcuddur{{else}}Bitib{{/if}}</button>
                         </div>
                     </div>
                 </div>
