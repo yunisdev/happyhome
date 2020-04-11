@@ -20,6 +20,9 @@ const orderSchema = mongoose.Schema({
     notes:{
         type:String
     },
+    comments:{
+        type:String,
+    },
     orders:[{
         itemID:{
             type:mongoose.Schema.Types.ObjectId,
