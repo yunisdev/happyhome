@@ -1,30 +1,35 @@
 <div style="margin:100px 0px;" class="container col-md-12">
-    <div class="row col-md-8 offset-md-2">
+    <div class="row col-md-12">
         <h2 class="col-md-12 text-center">Sifarişlər</h2>
         <div class="container col-md-12">
             {{#each orders}}
-            <div class="col-md-12" style="margin-top:50px" id="ordersContainer">
-                <div class="col-md-12" style="padding:20px">
-                    <div class="col-md-12 card" style="padding-top: 10px;">
-                        <div class="col-md-12 float-left">
-                            <p>Sifariş ID: {{this._id}}</p>
+            <div class="col-md-12 container" style="margin-top:10px" id="ordersContainer">
+                <div class="col-md-12 row" style="padding:10px">
+                    <div class="{{#if this.isDone}}done{{/if}} col-md-12 card text-left" style="padding-top: 10px;">
+                        <div class="col-md-12" style="margin:0;padding:20px">
+                            <p>
+                                {{this.name}}
+                                {{!-- View --}}
+                                <span style="width:50px;float:right;margin-left:10px">
+                                    <button class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                </span>
+                                {{!-- Alright --}}
+                                <span style="width:50px;float: right;">
+                                    <button class="btn btn-success"><i class="fas fa-check"></i></button>
+                                </span>
+                            </p>
+                            <p class="text-muted" style="margin-top:10px!important;padding-top:10px">
+                                {{this.createdAt}}
+                                {{!-- Delete --}}
+                                <span style="width:50px;float:right;margin-left:10px">
+                                    <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                </span>
+                                {{!-- Comment --}}
+                                <span style="width:50px;float: right;">
+                                    <button class="btn btn-secondary"><i class="fas fa-comment"></i></button>
+                                </span>
+                            </p>
                         </div>
-                        <div class="col-md-12 float-left" style="margin-top:10px">
-                            <p class="" style="font-size: x-large;">Sifarişlər</p>
-                        </div>
-                        {{#each this.orders}}
-                        <div class="col-md-12" style="padding:20px;float:left">
-                            <div class="card row"
-                                style="padding:10px">
-                                <div class="col-md-12 float-left">
-                                    <img onclick="window.open('/product/{{this.itemID}}')" class="col-md-2" src="/data/pic/{{this.itemID}}">
-                                </div>
-                                <div class="col-md-12 float-left" style="padding-top:10px">
-                                    <p class="text-muted">ID: {{this.itemID}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        {{/each}}
                     </div>
                 </div>
             </div>

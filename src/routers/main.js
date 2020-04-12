@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
+const auth = require('../middleware/auth')
 const Product = require('../models/product')
 const Order = require('../models/order')
 const Subs = require('../models/subscriber')
@@ -90,6 +91,15 @@ router.post('/order', async (req, res) => {
     } catch (e) {
         res.send('Error ' + e.message)
     }
+})
+router.get('/order/:id', auth, async (req, res) => {
+    const order = await Order.findById(req.params.id)
+    if (order) {
+        return res.render('orderPage', {
+            order
+        })
+    }
+    res.status(404).redirect('/404')
 })
 router.get('/order-success', (req, res) => {
     const orderID = req.cookies.orderID

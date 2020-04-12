@@ -128,5 +128,8 @@ router.get('/product/soldout/:id', auth, async (req, res) => {
     }
     res.redirect('/panel')
 })
-
+router.get('/product/delete/:id', auth, async (req, res) => {
+    await Product.findByIdAndDelete(req.params.id)
+    res.redirect('/panel')
+})
 module.exports = router

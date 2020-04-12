@@ -98,3 +98,14 @@ body {
 
 a[href="https://elfsight.com/instagram-feed-instashow/?utm_source=websites&utm_medium=clients&utm_content=instagram-feed&utm_term=localhost:3000&utm_campaign=free-widget"] {
   opacity: 0 !important; }
+
+.done::before {
+  opacity: 0.6;
+  content: '';
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  background-color: green;
+  z-index: 200; }
