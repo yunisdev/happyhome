@@ -10,51 +10,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-md navbar-light">
-        <div class="container">
-
-            {{>navbarToggler}}
-            <a class="collapse navbar-collapse navbar-brand float-left  ml-auto" href="/"><img src="/assets/logo2.png"
-                    width="200px"></a>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hvr-bounce-to-top" href="/contact">Əlaqə</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle hvr-bounce-to-top" href="#" id="navbarDropdown2"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Məhsullar
-                        </a>
-                        <div style="z-index: 99;" class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <a class="dropdown-item" style="font-weight: bold;" href="/products">Bütün kateqoriyalar</a>
-                            <a class="dropdown-item" href="/products/sufre-desti">Süfrə dəsti</a>
-                            <a class="dropdown-item" href="/products/qasiq-cengel-bicaq-desti">Qaşıq-Çəngəl-Bıçaq
-                                dəstləri</a>
-                            <a class="dropdown-item" href="/products/bakal-qrafin-desti">Bakal-Qrafin dəstləri</a>
-                            <a class="dropdown-item" href="/products/bosqab-altligi">Boşqab altlığı</a>
-                            <a class="dropdown-item" href="/products/qazan-desti">Qazan dəsti</a>
-                            <a class="dropdown-item" href="/products/hediyyelik-qab">Hədiyyəlik qablar</a>
-                            <a class="dropdown-item" href="/products/cilciraq">Çilçıraq</a>
-                            <a class="dropdown-item" href="/products/elektrikli-alet">Elektrikli alət</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav float-left ml-auto">
-                    <li class="nav-item active">
-                        <a style="width:50px" class="nav-link hvr-bounce-to-top" href="/basket"><i
-                                class="fas fa-shopping-basket"></i></a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {{>nav}}
 
     <div class="main container">
         <div style="margin-top: 100px;margin-bottom:100px" class="row">

@@ -1,0 +1,68 @@
+<nav class="navbar fixed-top navbar-expand-md navbar-light">
+    <div class="container">
+
+        {{>navbarToggler}}
+        <a class="collapse navbar-collapse navbar-brand float-left  ml-auto" href="/"><img src="/assets/logo2.png"
+                width="200px"></a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li id="nav-index" class="nav-item">
+                    <a class="nav-link hvr-bounce-to-top" href="/">Ana səhifə</a>
+                </li>
+                <li id="nav-contact" class="nav-item">
+                    <a class="nav-link hvr-bounce-to-top" href="/contact">Əlaqə</a>
+                </li>
+                <li id="nav-products" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hvr-bounce-to-top" href="#" id="navbarDropdown2" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Məhsullar
+                    </a>
+                    <div style="z-index: 99;" class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <a class="dropdown-item" href="/products">Bütün kateqoriyalar</a>
+                        <a class="dropdown-item" href="/products/sufre-desti">&nbsp;&nbsp;&nbsp;&nbsp;Süfrə dəsti</a>
+                        <a class="dropdown-item"
+                            href="/products/qasiq-cengel-bicaq-desti">&nbsp;&nbsp;&nbsp;&nbsp;Qaşıq-Çəngəl-Bıçaq
+                            dəstləri</a>
+                        <a class="dropdown-item"
+                            href="/products/bakal-qrafin-desti">&nbsp;&nbsp;&nbsp;&nbsp;Bakal-Qrafin dəstləri</a>
+                        <a class="dropdown-item" href="/products/bosqab-altligi">&nbsp;&nbsp;&nbsp;&nbsp;Boşqab
+                            altlığı</a>
+                        <a class="dropdown-item" href="/products/qazan-desti">&nbsp;&nbsp;&nbsp;&nbsp;Qazan dəsti</a>
+                        <a class="dropdown-item" href="/products/hediyyelik-qab">&nbsp;&nbsp;&nbsp;&nbsp;Hədiyyəlik
+                            qablar</a>
+                        <a class="dropdown-item" href="/products/cilciraq">&nbsp;&nbsp;&nbsp;&nbsp;Çilçıraq</a>
+                        <a class="dropdown-item" href="/products/elektrikli-alet">&nbsp;&nbsp;&nbsp;&nbsp;Elektrikli
+                            alət</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav float-left ml-auto">
+                <li class="nav-item">
+                    <button onclick="location.href='/subscribe'" style="font-size:15px;padding:10px" type="submit"
+                        class="btn btn-danger main-red hover-opacity">
+                        ABUNƏ OL
+                    </button>
+                </li>
+                <li id="nav-basket" class="nav-item">
+                    <a style="width:50px" class="nav-link hvr-bounce-to-top" href="/basket"><i
+                            class="fas fa-shopping-basket"></i></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<script>
+    var page = location.pathname.replace('/','')
+    if(page===''){
+        $('#nav-index').addClass('active')
+    }else if(page==='basket'){
+        $('#nav-basket').addClass('active')
+    }else if(page==='contact'){
+        $('#nav-contact').addClass('active')
+    }else if(page.includes('product')){
+        $('#nav-products').addClass('active')
+    }
+</script>
