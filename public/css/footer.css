@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 .spec-card {
   padding: 30px 10px;
-  opacity: 0.6;
   display: flex;
   justify-content: center;
   align-items: center;
