@@ -103,18 +103,15 @@ router.get('/order/:id', auth, async (req, res) => {
 })
 router.get('/order/isdone/:id', auth, async (req, res) => {
     const order = await Order.findById(req.params.id)
-    if (order.isDone) {
+    if (order.isDone===true) {
         await Order.findByIdAndUpdate(req.params.id, {
             isDone: false
         })
     }else{
         await Order.findByIdAndUpdate(req.params.id, {
-            isDone: false
+            isDone: true
         })
     }
-    await Order.findByIdAndUpdate(req.params.id, {
-        isDone: true
-    })
     res.redirect('/panel')
 })
 router.get('/order/delete/:id', auth, async (req, res) => {
