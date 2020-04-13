@@ -16,12 +16,15 @@ const orderSchema = mongoose.Schema({
     },
     address:{
         type:String,
+        default:'',
     },
     notes:{
-        type:String
+        type:String,
+        default:'',
     },
     comments:{
         type:String,
+        default:'',
     },
     orders:[{
         itemID:{

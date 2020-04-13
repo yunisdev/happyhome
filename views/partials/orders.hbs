@@ -5,28 +5,33 @@
             {{#each orders}}
             <div class="col-md-12 container" style="margin-top:10px" id="ordersContainer">
                 <div class="col-md-12 row" style="padding:10px">
-                    <div class="{{#if this.isDone}}done{{/if}} col-md-12 card text-left" style="padding-top: 10px;">
+                    <div class="{{#if this.isDone}}done{{/if}} col-md-12 card text-left" style="border:2px solid grey;padding-top: 10px;">
                         <div class="col-md-12" style="margin:0;padding:20px">
                             <p>
                                 {{this.name}}
                                 {{!-- View --}}
-                                <span style="width:50px;float:right;margin-left:10px">
-                                    <button class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                <span style="z-index:9999!important;width:50px;float:right;margin-left:10px">
+                                    <button title="Bax" onclick="window.open('/order/{{this._id}}')" class="btn btn-primary"><i
+                                            class="far fa-eye"></i></button>
                                 </span>
                                 {{!-- Alright --}}
-                                <span style="width:50px;float: right;">
-                                    <button class="btn btn-success"><i class="fas fa-check"></i></button>
+                                <span style="z-index:9999!important;width:50px;float: right;">
+                                    <button title="Hazırdır" onclick="location.href='/order/isdone/{{this._id}}'"
+                                        class="btn btn-success"><i class="fas fa-check"></i></button>
                                 </span>
+
                             </p>
                             <p class="text-muted" style="margin-top:10px!important;padding-top:10px">
                                 {{this.createdAt}}
                                 {{!-- Delete --}}
-                                <span style="width:50px;float:right;margin-left:10px">
-                                    <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                <span style="z-index:9999!important;width:50px;float:right;margin-left:10px">
+                                    <button title="Sil" onclick="deleteDialog('{{this._id}}')" class="btn btn-danger"><i
+                                            class="fas fa-trash"></i></button>
                                 </span>
                                 {{!-- Comment --}}
-                                <span style="width:50px;float: right;">
-                                    <button class="btn btn-secondary"><i class="fas fa-comment"></i></button>
+                                <span style="z-index:9999!important;width:50px;float:right;">
+                                    <button title="Şərh" onclick="commentDialog('{{this._id}}','{{this.comments}}')"
+                                        class="btn btn-secondary"><i class="fas fa-comment"></i></button>
                                 </span>
                             </p>
                         </div>
@@ -37,3 +42,30 @@
         </div>
     </div>
 </div>
+<script>
+    function deleteDialog(id) {
+        Swal.fire({
+            icon: 'warning',
+            html: `
+            <p>Bu sifarişi silmək istədiyinizdən əminsiniz?</p>
+            <button onclick="location.href='/order/delete/${id}'" class="btn btn-danger">SİL</button>
+            `,
+            showConfirmButton: false,
+            showCancelButton: false,
+            showCloseButton: true,
+        })
+    }
+    function commentDialog(id, comment = '') {
+        Swal.fire({
+            html: `
+            <form method="POST" style="padding:20px" action="/order/comment/${id}">
+            <textarea name="comment" id="comment" style="border-radius:10px;resize:none;padding:20px" class="col-md-12" rows="10">${comment}</textarea>
+            <button style="margin-top:20px" type="submit" class="btn btn-secondary">Göndər</button>
+            </form>
+            `,
+            showConfirmButton: false,
+            showCancelButton: false,
+            showCloseButton: true,
+        })
+    }
+</script>

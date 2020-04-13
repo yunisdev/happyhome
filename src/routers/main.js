@@ -101,6 +101,32 @@ router.get('/order/:id', auth, async (req, res) => {
     }
     res.status(404).redirect('/404')
 })
+router.get('/order/isdone/:id', auth, async (req, res) => {
+    const order = await Order.findById(req.params.id)
+    if (order.isDone) {
+        await Order.findByIdAndUpdate(req.params.id, {
+            isDone: false
+        })
+    }else{
+        await Order.findByIdAndUpdate(req.params.id, {
+            isDone: false
+        })
+    }
+    await Order.findByIdAndUpdate(req.params.id, {
+        isDone: true
+    })
+    res.redirect('/panel')
+})
+router.get('/order/delete/:id', auth, async (req, res) => {
+    await Order.findByIdAndDelete(req.params.id)
+    res.redirect('/panel')
+})
+router.post('/order/comment/:id', auth, async (req, res) => {
+    await Order.findByIdAndUpdate(req.params.id, {
+        comments: req.body.comment
+    })
+    res.redirect('/panel')
+})
 router.get('/order-success', (req, res) => {
     const orderID = req.cookies.orderID
     res.clearCookie('orderID').render('orderSuccess', {
