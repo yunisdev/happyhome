@@ -6,13 +6,10 @@
   "scripts": {
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js -e js,hbs,html,css",
     "scss": "node-sass --w ./public/scss/ -o ./public/css",
-<<<<<<< HEAD
-    "start": "env-cmd -f ./config/prod.env node src/index.js"
-=======
+    "start": "env-cmd -f ./config/prod.env node src/index.js",
     "start":"env-cmd -f ./config/prod.env node src/index.js",
     "production":"nohup env-cmd -f ./config/prod.env node src/index.js &",
     "stop":"pkill node"
->>>>>>> e6753b4903d96d78716b0975f906a6f21c3d0698
   },
   "keywords": [],
   "author": "",
