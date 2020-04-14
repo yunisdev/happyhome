@@ -7,7 +7,8 @@
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js -e js,hbs,html,css",
     "scss": "node-sass --w ./public/scss/ -o ./public/css",
     "start":"env-cmd -f ./config/prod.env node src/index.js",
-    "production":"nohup env-cmd -f ./config/prod.env node src/index.js &"
+    "production":"nohup env-cmd -f ./config/prod.env node src/index.js &",
+    "stop":"pkill node"
   },
   "keywords": [],
   "author": "",
