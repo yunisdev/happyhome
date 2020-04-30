@@ -19,6 +19,8 @@ router.get('/admin', isAuth, (req, res) => {
 router.post('/login', (req, res) => {
     if (req.body.password == process.env.ADMIN_PASS) {
         res.cookie('auth', process.env.AUTH_SECRET).redirect('/panel')
+    }else{
+        res.send('Parol səhvdir və ya sizin bura daxil olmaq üçün icazəniz yoxdur')
     }
 })
 
