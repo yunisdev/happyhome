@@ -1,90 +1,229 @@
-
-> happyhome@1.0.0 start /root/happyhome
-> env-cmd -f ./config/prod.env node src/index.js
-
-Mon, 13 Apr 2020 14:23:30 GMT body-parser deprecated undefined extended: provide extended option at src/index.js:11:17
+Wed, 15 Apr 2020 13:32:32 GMT body-parser deprecated undefined extended: provide extended option at src/index.js:11:17
 Server is running on 80
-(node:8793) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
-Terminated
-npm ERR! code ELIFECYCLE
-npm ERR! errno 143
-npm ERR! happyhome@1.0.0 start: `env-cmd -f ./config/prod.env node src/index.js`
-npm ERR! Exit status 143
-npm ERR! 
-npm ERR! Failed at the happyhome@1.0.0 start script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /root/.npm/_logs/2020-04-13T15_03_42_749Z-debug.log
-
-> happyhome@1.0.0 start /root/happyhome
-> env-cmd -f ./config/prod.env node src/index.js
-
-Mon, 13 Apr 2020 15:24:20 GMT body-parser deprecated undefined extended: provide extended option at src/index.js:11:17
-Server is running on 8000
-(node:9591) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
-Terminated
-npm ERR! code ELIFECYCLE
-npm ERR! errno 143
-npm ERR! happyhome@1.0.0 start: `env-cmd -f ./config/prod.env node src/index.js`
-npm ERR! Exit status 143
-npm ERR! 
-npm ERR! Failed at the happyhome@1.0.0 start script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /root/.npm/_logs/2020-04-13T15_30_39_867Z-debug.log
-
-> happyhome@1.0.0 start /root/happyhome
-> env-cmd -f ./config/prod.env node src/index.js
-
-Mon, 13 Apr 2020 15:32:10 GMT body-parser deprecated undefined extended: provide extended option at src/index.js:11:17
-Server is running on 80
-(node:9764) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
-Terminated
-npm ERR! code ELIFECYCLE
-npm ERR! errno 143
-npm ERR! happyhome@1.0.0 start: `env-cmd -f ./config/prod.env node src/index.js`
-npm ERR! Exit status 143
-npm ERR! 
-npm ERR! Failed at the happyhome@1.0.0 start script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /root/.npm/_logs/2020-04-13T15_51_27_535Z-debug.log
-
-> happyhome@1.0.0 start /root/happyhome
-> env-cmd -f ./config/prod.env node src/index.js
-
-Mon, 13 Apr 2020 16:01:41 GMT body-parser deprecated undefined extended: provide extended option at src/index.js:11:17
-Server is running on 5000
-(node:10819) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
-Terminated
-npm ERR! code ELIFECYCLE
-npm ERR! errno 143
-npm ERR! happyhome@1.0.0 start: `env-cmd -f ./config/prod.env node src/index.js`
-npm ERR! Exit status 143
-npm ERR! 
-npm ERR! Failed at the happyhome@1.0.0 start script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /root/.npm/_logs/2020-04-13T16_05_27_323Z-debug.log
-
-> happyhome@1.0.0 start /root/happyhome
-> env-cmd -f ./config/prod.env node src/index.js
-
-Mon, 13 Apr 2020 16:08:49 GMT body-parser deprecated undefined extended: provide extended option at src/index.js:11:17
-Server is running on 80
-(node:10976) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
-Terminated
-npm ERR! code ELIFECYCLE
-npm ERR! errno 143
-npm ERR! happyhome@1.0.0 start: `env-cmd -f ./config/prod.env node src/index.js`
-npm ERR! Exit status 143
-npm ERR! 
-npm ERR! Failed at the happyhome@1.0.0 start script.
-npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /root/.npm/_logs/2020-04-14T18_15_00_664Z-debug.log
+(node:17260) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:17260) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 4)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 5)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 6)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 7)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 8)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 9)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 10)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 11)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 12)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 13)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 14)
+(node:17260) UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value "${id}" at path "_id" for model "Products"
+    at new CastError (/root/happyhome/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/root/happyhome/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/root/happyhome/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/root/happyhome/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/root/happyhome/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/root/happyhome/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/root/happyhome/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/root/happyhome/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/root/happyhome/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/root/happyhome/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /root/happyhome/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+(node:17260) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 15)
