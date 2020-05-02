@@ -17,11 +17,31 @@
                 Şikayət və təkliflər
             </h4>
         </div>
-        <div style="margin-top:50px;margin-bottom:100px"
-            class="container col-md-12">
+        <div style="margin-top:50px;margin-bottom:100px" class="container col-md-12">
             <p>
-                
+                Aşağıdakı formda şikayət və təkliflərinizi, habelə istəklərinizi qeyd edə bilərsiniz.
             </p>
+            <form style="padding:10px" class="col-md-6 offset-md-3" action="/offer" method="POST">
+                <div class="form-field" style="margin-top: 30px;">
+                    <label for="name" class="col-md-12" style="font-size:large;">Adınız, Soyadınız</label>
+                    <input required placeholder="Adınız, Soyadınız..." type="text" name="name" id="name"
+                        class="form-control col-md-12">
+                </div>
+                <div class="form-field" style="margin-top: 30px;">
+                    <label for="email" class="col-md-12" style="font-size:large;">E-poçt adresiniz</label>
+                    <input required placeholder="E-poçt adresiniz..." type="email" name="email" id="email"
+                        class="form-control col-md-12">
+                </div>
+                <div class="form-field" style="margin-top: 30px;">
+                    <label for="notes" class="col-md-12" style="font-size:large;">Qeydləriniz</label>
+                    <textarea required placeholder="Qeydləriniz..." name="notes" id="notes"
+                        class="form-control col-md-12"></textarea>
+                </div>
+                <div class="form-field" style="margin-top: 30px;">
+                    <button class="col-md-6 offset-md-3 btn btn-danger" style="font-size:x-large" type="submit">Sifariş
+                        et</button>
+                </div>
+            </form>
         </div>
         {{>footer}}
     </div>

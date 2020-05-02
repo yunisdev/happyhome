@@ -87,43 +87,13 @@ router.post('/order', async (req, res) => {
 
         const order = new Order({ name, phoneNum, email, address, notes, orders })
         await order.save()
+        //sendOrderMail(order)
         res.clearCookie('basket').cookie('orderID', order._id).redirect('/order-success')
     } catch (e) {
         res.send('Error ' + e.message)
     }
 })
-router.get('/order/:id', auth, async (req, res) => {
-    const order = await Order.findById(req.params.id)
-    if (order) {
-        return res.render('orderPage', {
-            order
-        })
-    }
-    res.status(404).redirect('/404')
-})
-router.get('/order/isdone/:id', auth, async (req, res) => {
-    const order = await Order.findById(req.params.id)
-    if (order.isDone === true) {
-        await Order.findByIdAndUpdate(req.params.id, {
-            isDone: false
-        })
-    } else {
-        await Order.findByIdAndUpdate(req.params.id, {
-            isDone: true
-        })
-    }
-    res.redirect('/panel')
-})
-router.get('/order/delete/:id', auth, async (req, res) => {
-    await Order.findByIdAndDelete(req.params.id)
-    res.redirect('/panel')
-})
-router.post('/order/comment/:id', auth, async (req, res) => {
-    await Order.findByIdAndUpdate(req.params.id, {
-        comments: req.body.comment
-    })
-    res.redirect('/panel')
-})
+
 router.get('/order-success', (req, res) => {
     const orderID = req.cookies.orderID
     res.clearCookie('orderID').render('orderSuccess', {
@@ -142,6 +112,12 @@ router.get('/subscribe', (req, res) => {
 })
 
 router.get('/article/:name', (req, res) => {
-    res.render('articles/'+req.params.name)
+    res.render('articles/' + req.params.name)
+})
+
+router.post('/offer', (req, res) => {
+    console.log(req.body)
+    //sendOfferMail(req.body)
+    res.redirect('/article/şikayət_və_təkliflər')
 })
 module.exports = router

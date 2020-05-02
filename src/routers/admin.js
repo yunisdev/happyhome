@@ -35,5 +35,36 @@ router.get('/panel', auth, async (req, res) => {
 router.get('/logout', auth, (req, res) => {
     res.clearCookie('auth').redirect('/admin')
 })
-
+router.get('/order/:id', auth, async (req, res) => {
+    const order = await Order.findById(req.params.id)
+    if (order) {
+        return res.render('orderPage', {
+            order
+        })
+    }
+    res.status(404).redirect('/404')
+})
+router.get('/order/isdone/:id', auth, async (req, res) => {
+    const order = await Order.findById(req.params.id)
+    if (order.isDone === true) {
+        await Order.findByIdAndUpdate(req.params.id, {
+            isDone: false
+        })
+    } else {
+        await Order.findByIdAndUpdate(req.params.id, {
+            isDone: true
+        })
+    }
+    res.redirect('/panel')
+})
+router.get('/order/delete/:id', auth, async (req, res) => {
+    await Order.findByIdAndDelete(req.params.id)
+    res.redirect('/panel')
+})
+router.post('/order/comment/:id', auth, async (req, res) => {
+    await Order.findByIdAndUpdate(req.params.id, {
+        comments: req.body.comment
+    })
+    res.redirect('/panel')
+})
 module.exports = router
