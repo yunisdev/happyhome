@@ -8,7 +8,6 @@
     "scss": "node-sass --w ./public/scss/ -o ./public/css",
     "start": "env-cmd -f ./config/prod.env node src/index.js",
     "production":"nohup env-cmd -f ./config/prod.env node src/index.js &",
-    "productions":"nohup env-cmd -f ./config/prods.env node src/index.js &",
     "stop":"pkill node"
   },
   "keywords": [],

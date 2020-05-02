@@ -103,11 +103,11 @@ router.get('/order/:id', auth, async (req, res) => {
 })
 router.get('/order/isdone/:id', auth, async (req, res) => {
     const order = await Order.findById(req.params.id)
-    if (order.isDone===true) {
+    if (order.isDone === true) {
         await Order.findByIdAndUpdate(req.params.id, {
             isDone: false
         })
-    }else{
+    } else {
         await Order.findByIdAndUpdate(req.params.id, {
             isDone: true
         })
@@ -139,5 +139,9 @@ router.post('/subscribe', async (req, res) => {
 })
 router.get('/subscribe', (req, res) => {
     res.render('subscribe')
+})
+
+router.get('/article/:name', (req, res) => {
+    res.render('articles/'+req.params.name)
 })
 module.exports = router
