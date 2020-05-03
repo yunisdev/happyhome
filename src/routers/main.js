@@ -119,7 +119,7 @@ router.get('/article/:name', (req, res) => {
 router.post('/offer', (req, res) => {
     //sendOfferMail(req.body)
     var body = mail.generateOfferBody(req.body)
-    mail.sendMail('yunisdev.04@gmail.com','Şikayət və Təkliflər',body)
+    mail.sendMail(process.env.EMAIL_OFFER_RECEIVER,'Şikayət və Təkliflər',body)
     res.redirect('/article/şikayət_və_təkliflər')
 })
 module.exports = router
