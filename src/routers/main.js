@@ -5,6 +5,7 @@ const auth = require('../middleware/auth')
 const Product = require('../models/product')
 const Order = require('../models/order')
 const Subs = require('../models/subscriber')
+const mail = require('../utils/mail')
 
 router.get('/', (req, res) => {
     res.render('index', {
@@ -116,8 +117,9 @@ router.get('/article/:name', (req, res) => {
 })
 
 router.post('/offer', (req, res) => {
-    console.log(req.body)
     //sendOfferMail(req.body)
+    var body = mail.generateOfferBody(req.body)
+    mail.sendMail('yunisdev.04@gmail.com','Şikayət və Təkliflər',body)
     res.redirect('/article/şikayət_və_təkliflər')
 })
 module.exports = router
