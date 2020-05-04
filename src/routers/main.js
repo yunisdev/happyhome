@@ -88,7 +88,13 @@ router.post('/order', async (req, res) => {
 
         const order = new Order({ name, phoneNum, email, address, notes, orders })
         await order.save()
-        //sendOrderMail(order)
+
+        for (var i = 0; i < orders.length; i++) {
+            orders[i] = await Product.findById(orders[i].itemID)
+        }
+        const mailOrder = { id: order._id, name, phoneNum, email, address, notes, orders }
+        var body = mail.generateOrderBody(mailOrder)
+        mail.sendMail(process.env.EMAIL_ORDER_RECEIVER, 'Sifariş', body)
         res.clearCookie('basket').cookie('orderID', order._id).redirect('/order-success')
     } catch (e) {
         res.send('Error ' + e.message)
@@ -108,6 +114,7 @@ router.post('/subscribe', async (req, res) => {
     await sub.save()
     res.cookie('subscribed', 'yes').redirect('/')
 })
+
 router.get('/subscribe', (req, res) => {
     res.render('subscribe')
 })
@@ -119,7 +126,8 @@ router.get('/article/:name', (req, res) => {
 router.post('/offer', (req, res) => {
     //sendOfferMail(req.body)
     var body = mail.generateOfferBody(req.body)
-    mail.sendMail(process.env.EMAIL_OFFER_RECEIVER,'Şikayət və Təkliflər',body)
+    mail.sendMail(process.env.EMAIL_OFFER_RECEIVER, 'Şikayət və Təkliflər', body)
     res.redirect('/article/şikayət_və_təkliflər')
 })
+
 module.exports = router
