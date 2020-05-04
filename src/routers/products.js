@@ -41,28 +41,28 @@ router.get('/products/:category', async (req, res) => {
     var category
     switch (req.params.category) {
         case 'cilciraq':
-            category = 'Çilçıraq'
+            category = 'Çilçıraqlar'
             break;
         case 'bosqab-altligi':
-            category = 'Boşqab altlığı'
+            category = 'Boşqab altlıqları'
             break;
         case 'qazan-desti':
-            category = 'Qazan dəsti'
+            category = 'Qazan dəstləri'
             break;
         case 'hediyyelik-qab':
-            category = 'Hədiyyəlik qab'
+            category = 'Hədiyyəlik qablar'
             break;
         case 'elektrikli-alet':
             category = 'Elektrikli alətlər'
             break;
         case 'qasiq-cengel-bicaq-desti':
-            category = 'Qaşıq-Çəngəl-Bıçaq dəsti'
+            category = 'Qaşıq-Çəngəl-Bıçaq dəstləri'
             break;
         case 'bakal-qrafin-desti':
-            category = 'Bakal-Qrafin dəsti'
+            category = 'Bakal-Qrafin dəstləri'
             break;
         case 'sufre-desti':
-            category = 'Süfrə dəsti'
+            category = 'Süfrə dəstləri'
             break;
 
         default:

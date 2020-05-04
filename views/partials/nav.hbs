@@ -19,20 +19,22 @@
                     </a>
                     <div style="z-index: 99;" class="dropdown-menu" aria-labelledby="navbarDropdown1">
                         <a class="dropdown-item" href="/products">Bütün kateqoriyalar</a>
-                        <a class="dropdown-item" href="/products/sufre-desti">&nbsp;&nbsp;&nbsp;&nbsp;Süfrə dəsti</a>
-                        <a class="dropdown-item"
-                            href="/products/qasiq-cengel-bicaq-desti">&nbsp;&nbsp;&nbsp;&nbsp;Qaşıq-Çəngəl-Bıçaq
+                        <a class="dropdown-item" href="/products/sufre-desti">&nbsp;&nbsp;&nbsp;&nbsp;Süfrə dəstləri</a>
+                        <a class="dropdown-item" href="/products/qasiq-cengel-bicaq-desti">&nbsp;&nbsp;&nbsp;&nbsp;<i
+                                class="text-muted">&mdash;</i>Qaşıq-Çəngəl-Bıçaq
                             dəstləri</a>
-                        <a class="dropdown-item"
-                            href="/products/bakal-qrafin-desti">&nbsp;&nbsp;&nbsp;&nbsp;Bakal-Qrafin dəstləri</a>
-                        <a class="dropdown-item" href="/products/bosqab-altligi">&nbsp;&nbsp;&nbsp;&nbsp;Boşqab
-                            altlığı</a>
-                        <a class="dropdown-item" href="/products/qazan-desti">&nbsp;&nbsp;&nbsp;&nbsp;Qazan dəsti</a>
-                        <a class="dropdown-item" href="/products/hediyyelik-qab">&nbsp;&nbsp;&nbsp;&nbsp;Hədiyyəlik
+                        <a class="dropdown-item" href="/products/bakal-qrafin-desti">&nbsp;&nbsp;&nbsp;&nbsp;<i
+                                class="text-muted">&mdash;</i>Bakal-Qrafin dəstləri</a>
+                        <a class="dropdown-item" href="/products/bosqab-altligi">&nbsp;&nbsp;&nbsp;&nbsp;<i
+                                class="text-muted">&mdash;</i>Boşqab
+                            altlıqları</a>
+                        <a class="dropdown-item" href="/products/hediyyelik-qab">&nbsp;&nbsp;&nbsp;&nbsp;<i
+                                class="text-muted">&mdash;</i>Hədiyyəlik
                             qablar</a>
-                        <a class="dropdown-item" href="/products/cilciraq">&nbsp;&nbsp;&nbsp;&nbsp;Çilçıraq</a>
+                        <a class="dropdown-item" href="/products/qazan-desti">&nbsp;&nbsp;&nbsp;&nbsp;Qazan dəstləri</a>
+                        <a class="dropdown-item" href="/products/cilciraq">&nbsp;&nbsp;&nbsp;&nbsp;Çilçıraqlar</a>
                         <a class="dropdown-item" href="/products/elektrikli-alet">&nbsp;&nbsp;&nbsp;&nbsp;Elektrikli
-                            alət</a>
+                            alətlər</a>
                     </div>
                 </li>
             </ul>
@@ -55,14 +57,19 @@
     </div>
 </nav>
 <script>
-    var page = location.pathname.replace('/','')
-    if(page===''){
+    var page = location.pathname.replace('/', '')
+    var title = document.querySelector('title')
+    if (page === '') {
         $('#nav-index').addClass('active')
-    }else if(page==='basket'){
+        title.innerHTML = 'Happy Home | Ana səhifə'
+    } else if (page === 'basket') {
         $('#nav-basket').addClass('active')
-    }else if(page==='contact'){
+        title.innerHTML = 'Happy Home | Səbət'
+    } else if (page === 'contact') {
         $('#nav-contact').addClass('active')
-    }else if(page.includes('product')){
+        title.innerHTML = 'Happy Home | Əlaqə'
+    } else if (page.includes('product')) {
         $('#nav-products').addClass('active')
+        title.innerHTML = 'Happy Home | Məhsullar'
     }
 </script>
