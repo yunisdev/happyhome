@@ -129,5 +129,7 @@ router.post('/offer', (req, res) => {
     mail.sendMail(process.env.EMAIL_OFFER_RECEIVER, 'Şikayət və Təkliflər', body)
     res.redirect('/article/şikayət_və_təkliflər')
 })
-
+router.post('/stats', (req, res) => {
+    
+})
 module.exports = router

@@ -9,15 +9,17 @@ const port = process.env.PORT
 const fs = require('fs')
 const http = require('http');
 const https = require('https');
+const requestIP = require('request-ip')
 require('./db/db')
 
-
+app.use(requestIP.mw())
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.static(publicDirectoryPath, { dotfiles: 'allow' }))
 app.set('view engine', 'hbs')
 hbs.registerPartials(partialsPath)
+
 
 
 const mainRouter = require('./routers/main')
