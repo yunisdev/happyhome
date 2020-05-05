@@ -58,7 +58,7 @@ if (process.env.NODE_ENV == 'development') {
 	});
 
 	httpsServer.listen(443, () => {
-		console.log('HTTPS Server running on port 443');
-	});
+                console.log('HTTPS Server running on port 443');
+        });
 }
 
