@@ -21,7 +21,10 @@ app.use(express.static(publicDirectoryPath, { dotfiles: 'allow' }))
 app.set('view engine', 'hbs')
 hbs.registerPartials(partialsPath)
 
-
+app.use((req,res,next)=>{
+	console.log(req.headers.host)
+	next()
+})
 
 const mainRouter = require('./routers/main')
 app.use(mainRouter)
