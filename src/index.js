@@ -45,12 +45,6 @@ app.get('*', (req, res) => {
 	res.render('404', { subscribed: req.cookies.subscribed })
 })
 
-app.listen(80,()=>{
-console.log('A')
-})
-
-// Starting both http & https servers
-/*
 if (process.env.NODE_ENV == 'development') {
 	app.listen(port, () => {
 		console.log('Development server running on ' + port)
@@ -77,5 +71,3 @@ if (process.env.NODE_ENV == 'development') {
                 console.log('HTTPS Server running on port 443');
         });
 }
-
-*/
