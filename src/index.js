@@ -7,13 +7,15 @@ const partialsPath = path.join(__dirname, '../views/partials')
 const publicDirectoryPath = path.join(__dirname, '../public')
 const port = process.env.PORT
 const fs = require('fs')
-const http = require('http');
-const https = require('https');
+const http = require('http')
+const wildcardSubdomains = require('wildcard-subdomains')
+const https = require('https')
 const requestIP = require('request-ip')
 require('./db/db')
 
+app.use(wildcardSubdomains())
 app.use(requestIP.mw())
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.static(publicDirectoryPath, { dotfiles: 'allow' }))
@@ -29,6 +31,10 @@ app.use(productRouter)
 const adminRouter = require('./routers/admin')
 app.use(adminRouter)
 
+app.get('/_sub/help', (req, res) => {
+	res.send('Happy Help')
+})
+
 app.get('*', (req, res) => {
 	res.render('404', { subscribed: req.cookies.subscribed })
 })
@@ -37,7 +43,7 @@ app.get('*', (req, res) => {
 
 if (process.env.NODE_ENV == 'development') {
 	app.listen(port, () => {
-		console.log('Development server running on '+port)
+		console.log('Development server running on ' + port)
 	})
 } else if (process.env.NODE_ENV == 'production') {
 	// Certificate
