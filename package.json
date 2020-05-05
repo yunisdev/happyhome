@@ -26,6 +26,7 @@
     "nodemailer": "^6.4.6",
     "request-ip": "^2.1.3",
     "sharp": "^0.25.2",
+    "vhost": "^3.0.2",
     "visitor-info": "^0.2.4",
     "web-push": "^3.4.3",
     "wildcard-subdomains": "^1.1.0"

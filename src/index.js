@@ -7,13 +7,12 @@ const partialsPath = path.join(__dirname, '../views/partials')
 const publicDirectoryPath = path.join(__dirname, '../public')
 const port = process.env.PORT
 const fs = require('fs')
+const vhost = require('vhost')
 const http = require('http')
-const wildcardSubdomains = require('wildcard-subdomains')
 const https = require('https')
 const requestIP = require('request-ip')
 require('./db/db')
 
-app.use(wildcardSubdomains())
 app.use(requestIP.mw())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -31,16 +30,24 @@ app.use(productRouter)
 const adminRouter = require('./routers/admin')
 app.use(adminRouter)
 
-app.get('/_sub/help', (req, res) => {
-	res.send('Happy Help')
-})
+app.use(vhost('*.*.happyhome.tc', (req, res, next) => {
+  console.log(req.vhost.host) // => 'foo.bar.example.com:8080'
+  console.log(req.vhost.hostname) // => 'foo.bar.example.com'
+  console.log(req.vhost.length) // => 2
+  console.log(req.vhost[0]) // => 'foo'
+  console.log(req.vhost[1]) // => 'bar'
+}))
 
 app.get('*', (req, res) => {
 	res.render('404', { subscribed: req.cookies.subscribed })
 })
 
-// Starting both http & https servers
+app.listen(80,()=>{
+console.log('A')
+})
 
+// Starting both http & https servers
+/*
 if (process.env.NODE_ENV == 'development') {
 	app.listen(port, () => {
 		console.log('Development server running on ' + port)
@@ -68,3 +75,4 @@ if (process.env.NODE_ENV == 'development') {
         });
 }
 
+*/
