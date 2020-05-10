@@ -6,8 +6,11 @@ const Product = require('../models/product')
 const Order = require('../models/order')
 const Subs = require('../models/subscriber')
 const mail = require('../utils/mail')
+const fs = require('fs')
 
 router.get('/', (req, res) => {
+    const ip = req.clientIp;
+    console.log(ip)
     res.render('index', {
         subscribed: req.cookies.subscribed
     })
@@ -130,6 +133,10 @@ router.post('/offer', (req, res) => {
     res.redirect('/article/şikayət_və_təkliflər')
 })
 router.post('/stats', (req, res) => {
-    
+    const statsFile = fs.readFileSync('./stats.json')
+    const ip = req.clientIp;
+    console.log(ip)
+    console.log(statsFile)
+    res.send('alright')
 })
 module.exports = router
