@@ -7,7 +7,7 @@ const partialsPath = path.join(__dirname, '../views/partials')
 const publicDirectoryPath = path.join(__dirname, '../public')
 const port = process.env.PORT
 const fs = require('fs')
-const vhost = require('vhost')
+const subdomain = require('./middleware/subdomain')
 const http = require('http')
 const https = require('https')
 const requestIP = require('request-ip')
@@ -21,10 +21,18 @@ app.use(express.static(publicDirectoryPath, { dotfiles: 'allow' }))
 app.set('view engine', 'hbs')
 hbs.registerPartials(partialsPath)
 
-app.use((req,res,next)=>{
-	console.log(req.headers.host)
-	next()
-})
+// app.use((req, res, next) => {
+// 	switch (req.headers.host.split('.')[0]) {
+// 		case 'admin':
+// 			res.redirect(`http://${req.headers.host.split('.')[1]}/admin`)
+// 			break;
+// 		default:
+// 			next()
+// 	}
+// })
+app.use(subdomain({
+	admin:'m/admin'
+}))
 
 const mainRouter = require('./routers/main')
 app.use(mainRouter)
@@ -32,14 +40,6 @@ const productRouter = require('./routers/products')
 app.use(productRouter)
 const adminRouter = require('./routers/admin')
 app.use(adminRouter)
-
-app.use(vhost('*.*.happyhome.tc', (req, res, next) => {
-  console.log(req.vhost.host) // => 'foo.bar.example.com:8080'
-  console.log(req.vhost.hostname) // => 'foo.bar.example.com'
-  console.log(req.vhost.length) // => 2
-  console.log(req.vhost[0]) // => 'foo'
-  console.log(req.vhost[1]) // => 'bar'
-}))
 
 app.get('*', (req, res) => {
 	res.render('404', { subscribed: req.cookies.subscribed })
@@ -68,6 +68,6 @@ if (process.env.NODE_ENV == 'development') {
 	});
 
 	httpsServer.listen(443, () => {
-                console.log('HTTPS Server running on port 443');
-        });
+		console.log('HTTPS Server running on port 443');
+	});
 }
