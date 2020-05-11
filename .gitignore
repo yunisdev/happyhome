@@ -2,3 +2,4 @@ node_modules/
 config/
 nohup.out
 public/.well-known
+src/utils/stats.json
