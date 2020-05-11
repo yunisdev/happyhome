@@ -88,15 +88,22 @@ const workWithParams = (params) => {
     }
 }
 workWithParams(getParams(window.location.href))
-
-fetch('/stats', {
-    method: 'POST',
-    body: getVisitorInfo()
-}).then((res) => {
-    console.log('adg')
-    if(res=='alright'){
-        console.log('Connected server succesfully')
+async function sendStats() {
+    const res = await fetch('/stats', {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(getVisitorInfo()) // body data type must match "Content-Type" header
+    })
+    if(!res.ok){
+        console.log('Connection problem.Please contact to website admin')
     }
-}).catch(() => {
-    console.log('Error while connecting server')
-})
+}
+sendStats()

@@ -9,8 +9,6 @@ const mail = require('../utils/mail')
 const fs = require('fs')
 
 router.get('/', (req, res) => {
-    const ip = req.clientIp;
-    console.log(ip)
     res.render('index', {
         subscribed: req.cookies.subscribed
     })
@@ -132,11 +130,14 @@ router.post('/offer', (req, res) => {
     mail.sendMail(process.env.EMAIL_OFFER_RECEIVER, 'Şikayət və Təkliflər', body)
     res.redirect('/article/şikayət_və_təkliflər')
 })
+
 router.post('/stats', (req, res) => {
-    const statsFile = fs.readFileSync('./stats.json')
-    const ip = req.clientIp;
-    console.log(ip)
-    console.log(statsFile)
-    res.send('alright')
+    var statsFile = './src/utils/stats.json'
+    var stats = JSON.parse(fs.readFileSync(statsFile).toString())
+    req.body['ip'] = req.clientIp
+    stats.visitors.push(req.body)
+    fs.writeFileSync(statsFile,JSON.stringify(stats))
+    res.status(200).send()
 })
+
 module.exports = router

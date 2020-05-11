@@ -31,7 +31,7 @@ hbs.registerPartials(partialsPath)
 // 	}
 // })
 app.use(subdomain({
-	admin:'m/admin'
+	admin: 'm/admin'
 }))
 
 const mainRouter = require('./routers/main')
