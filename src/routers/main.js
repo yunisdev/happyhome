@@ -132,7 +132,7 @@ router.post('/offer', (req, res) => {
 })
 
 router.post('/stats', (req, res) => {
-    var statsFile = './src/utils/stats.json'
+    var statsFile = './utils/stats.json'
     var stats = JSON.parse(fs.readFileSync(statsFile).toString())
     req.body['ip'] = req.clientIp
     stats.visitors.push(req.body)

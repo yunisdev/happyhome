@@ -21,15 +21,6 @@ app.use(express.static(publicDirectoryPath, { dotfiles: 'allow' }))
 app.set('view engine', 'hbs')
 hbs.registerPartials(partialsPath)
 
-// app.use((req, res, next) => {
-// 	switch (req.headers.host.split('.')[0]) {
-// 		case 'admin':
-// 			res.redirect(`http://${req.headers.host.split('.')[1]}/admin`)
-// 			break;
-// 		default:
-// 			next()
-// 	}
-// })
 app.use(subdomain({
 	admin: 'm/admin'
 }))
