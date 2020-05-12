@@ -3,7 +3,7 @@ const subdomainRedirect = (options = {}) => {
         var redirect = options[req.headers.host.split('.')[0]]
         if (redirect) {
             if (redirect.split('/')[0] === 'f') {
-                return res.redirect('http://' + req.headers.host.split('.')[1] + redirect.slice(1))
+                return res.redirect('http://' + req.headers.host.split('.')[1]+ req.headers.host.split('.')[2] || '' + redirect.slice(1))
             }else if(redirect.split('/')[0] === 'm'){
                 return res.send(`
                 <head>
