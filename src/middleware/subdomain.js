@@ -7,6 +7,8 @@ const subdomainRedirect = (options = {}) => {
                 return res.redirect('http://' + req.headers.host.split('.')[1] + extension + redirect.slice(1))
             } else if (redirect.split('/')[0] === 'm') {
                 var extension = process.env.NODE_ENV=='production' ? req.headers.host.split('.')[2] : ''
+                console.log(req.headers.host.split('.')[2])
+                console.log(extension)
                 return res.send(`
                 <head>
                     <style>
