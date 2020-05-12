@@ -16,7 +16,7 @@ const upload = multer({
     }
 })
 router.get('/data/products', auth, async (req, res) => {
-    const products = await Product.find({ soldOut: false }).sort({ createdAt: -1 })
+    const products = await Product.find().sort({ createdAt: -1 })
     res.send(products)
 })
 router.get('/product/:id', async (req, res) => {
@@ -69,7 +69,7 @@ router.get('/products/:category', async (req, res) => {
             category = 'Belə bir kateqoriya yoxdur'
             break;
     }
-    const products = await Product.find({ soldOut: false, category }).sort({ createdAt: -1 })
+    const products = await Product.find({ category }).sort({ createdAt: -1 })
     res.render('productsByCategory', { products, category, subscribed: req.cookies.subscribed })
 })
 router.get('/data/pic/:id', async (req, res) => {

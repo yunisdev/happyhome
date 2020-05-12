@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 * {
   font-family: "Montserrat", sans-serif;
@@ -101,7 +102,7 @@ a[href="https://elfsight.com/instagram-feed-instashow/?utm_source=websites&utm_m
 
 .done::before {
   opacity: 0.6;
-  content: '';
+  content: "";
   bottom: 0;
   position: absolute;
   width: 100%;
@@ -109,3 +110,18 @@ a[href="https://elfsight.com/instagram-feed-instashow/?utm_source=websites&utm_m
   left: 0;
   background-color: green;
   z-index: 0; }
+
+.sold-out-card::before {
+  position: absolute;
+  content: "Məhsul bitib";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-size: 5  0px;
+  background-color: #cecece96;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; }
