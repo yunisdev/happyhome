@@ -137,3 +137,21 @@ a[href="https://elfsight.com/instagram-feed-instashow/?utm_source=websites&utm_m
   margin-bottom: 10px;
   padding: 20px;
   border-radius: 50px; }
+
+.stores {
+  border: 1px solid #cecece;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 20px; }
+  .stores div {
+    padding: 20px; }
+  .stores :nth-child(1) h5 {
+    margin-bottom: 20px; }
+  .stores :nth-child(1) p {
+    font-size: 13px;
+    margin: 0; }
+  .stores :nth-child(2) {
+    padding: 0; }
+    .stores :nth-child(2) iframe {
+      border: none !important;
+      border-radius: 20px; }
