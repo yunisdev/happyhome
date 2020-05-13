@@ -43,7 +43,7 @@
                             <p style="font-size: x-large;margin-top:30px;">Kateqoriya: {{product.category}}</p>
                             {{#if product.subCates}}
                             <p style="font-size: x-large;margin-top:30px">Alt kateqoriya(lar):
-                                {{#each product.subCates}}{{this.text}}{{/each}}</p>
+                                {{#each product.subCates}}<span class="tag">{{this.text}}</span>{{/each}}</p>
                             {{/if}}
                             <p style="font-size: x-large;margin-top:30px;">İçindəkilər:</p>
                             {{#each product.ingredients}}

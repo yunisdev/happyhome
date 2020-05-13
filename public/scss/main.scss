@@ -138,3 +138,15 @@ a[href="https://elfsight.com/instagram-feed-instashow/?utm_source=websites&utm_m
   justify-content: center;
   padding: 0;
 }
+.tag {
+  width: 200px;
+  display: block;
+  font-size:20px;
+  text-align: center;
+  background-color: $main-grey;
+  color: white;
+  margin-top:10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 50px;
+}

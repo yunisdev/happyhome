@@ -1,13 +1,17 @@
 const subdomainRedirect = (options = {}) => {
     return (req, res, next) => {
-        var redirect = options[req.headers.host.split('.')[0]]
-        if (redirect) {
-            if (redirect.split('/')[0] === 'f') {
-                var extension = process.env.NODE_ENV=='production' ? '.'+req.headers.host.split('.')[2] : ''
-                return res.redirect('http://' + req.headers.host.split('.')[1] + extension + redirect.slice(1))
-            } else if (redirect.split('/')[0] === 'm') {
-                var extension = process.env.NODE_ENV=='production' ? '.'+req.headers.host.split('.')[2] : ''
-                return res.send(`
+        try {
+            if(!req.headers.host){
+                return next()
+            }
+            var redirect = options[req.headers.host.split('.')[0]]
+            if (redirect) {
+                if (redirect.split('/')[0] === 'f') {
+                    var extension = process.env.NODE_ENV == 'production' ? '.' + req.headers.host.split('.')[2] : ''
+                    return res.redirect('http://' + req.headers.host.split('.')[1] + extension + redirect.slice(1))
+                } else if (redirect.split('/')[0] === 'm') {
+                    var extension = process.env.NODE_ENV == 'production' ? '.' + req.headers.host.split('.')[2] : ''
+                    return res.send(`
                 <head>
                     <style>
                     *{
@@ -21,9 +25,12 @@ const subdomainRedirect = (options = {}) => {
                     <iframe style="width:100%;height:100vh" src="${'http://' + req.headers.host.split('.')[1] + extension + redirect.slice(1)}" ></iframe>
                 </body>
                 `)
+                }
             }
+            next()
+        } catch (e) {
+
         }
-        next()
     }
 }
 
