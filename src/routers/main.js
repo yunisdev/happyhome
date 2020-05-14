@@ -125,7 +125,6 @@ router.get('/article/:name', (req, res) => {
 })
 
 router.post('/offer', (req, res) => {
-    //sendOfferMail(req.body)
     var body = mail.generateOfferBody(req.body)
     mail.sendMail(process.env.EMAIL_OFFER_RECEIVER, 'Şikayət və Təkliflər', body)
     res.redirect('/article/şikayət_və_təkliflər')
@@ -136,8 +135,13 @@ router.post('/stats', (req, res) => {
     var stats = JSON.parse(fs.readFileSync(statsFile).toString())
     req.body['ip'] = req.clientIp
     stats.visitors.push(req.body)
-    fs.writeFileSync(statsFile,JSON.stringify(stats))
+    fs.writeFileSync(statsFile, JSON.stringify(stats))
     res.status(200).send()
 })
-
+router.post('/contact-form', (req, res) => {
+    console.log(process.env.EMAIL_CONTACT_RECEIVER)
+    var body = mail.generateContactBody(req.body)
+    mail.sendMail(process.env.EMAIL_CONTACT_RECEIVER,'Əlaqə',body)
+    res.redirect('/contact')
+})
 module.exports = router

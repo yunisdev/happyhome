@@ -17,8 +17,46 @@
                 Əlaqə
             </h4>
         </div>
+
         <div style="margin-top:50px;margin-bottom:100px" class="container col-md-12">
-            <h4 style="font-weight:bold">Mağazalarımız</h4>
+            <div class="row col-md-12 contact-form">
+                <div class="contact-info col-md-6">
+                    <h5 class="col-md-12 padding-zero" style="margin-bottom:20px;font-weight:bold">Əlaqə vasitələri</h5>
+                </div>
+                <form action="/contact-form" class="col-md-6" method="post">
+                    <h5 class="col-md-12 padding-zero" style="margin-bottom:20px;font-weight:bold">Bizimlə əlaqə
+                        saxlayın</h5>
+                    <div class="form-group row col-md-12 padding-zero">
+                        <label for="name" class="col-md-1 col-form-label"><i class="fas fa-user"></i></label>
+                        <input type="text" class="col-md-10 form-control" name="name" id="name"
+                            placeholder="Adınız, Soyadınız...">
+                    </div>
+                    <div class="form-group row col-md-12 padding-zero">
+                        <label for="email" class="col-md-1 col-form-label"><i class="fas fa-envelope"></i></label>
+                        <input type="email" class="col-md-10 form-control" name="email" id="email"
+                            placeholder="E-poçtunuz...">
+                    </div>
+                    <div class="form-group row col-md-12 padding-zero">
+                        <label for="phone" class="col-md-1 col-form-label"><i class="fas fa-phone"></i></label>
+                        <input type="phone" class="col-md-10 form-control" name="phone" id="phone"
+                            placeholder="Əlaqə nömrəsi...">
+                    </div>
+                    <div class="form-group row col-md-12 padding-zero">
+                        <label for="head" class="col-md-1 col-form-label"><i class="fas fa-star"></i></label>
+                        <input type="text" class="col-md-10 form-control" name="head" id="head" placeholder="Başlıq...">
+                    </div>
+                    <div class="form-group row col-md-12 padding-zero">
+                        <label for="notes" class="col-md-1 col-form-label"><i class="fas fa-pen"></i></label>
+                        <textarea class="col-md-10 form-control" name="notes" id="notes"
+                            placeholder="Qeydləriniz..."></textarea>
+                    </div>
+                    <div class="form-group row col-md-12 padding-zero">
+                        <button class="col-md-10 offset-md-1 btn btn-danger" style="font-size:large;padding:10px"
+                            type="submit">Göndər</button>
+                    </div>
+                </form>
+            </div>
+            <h4 style="font-weight:bold;width:100%;text-align:center;margin-top:100px;">Mağazalarımız</h4>
             <div class="col-md-12 row stores">
                 <div class="col-md-6">
                     <h5 class="col-md-12 padding-zero" style="font-weight:bold">Bakı mağazalarımız</h5>
@@ -56,10 +94,18 @@
                     </iframe>
                 </div>
             </div>
+
         </div>
         {{>footer}}
     </div>
-
+    <script src="/js/cleave.min.js"></script>
+    <script src="/js/cleave-phone.i18n.js"></script>
+    <script>
+        var cleave = new Cleave('#phone', {
+            phone: true,
+            phoneRegionCode: ''
+        })
+    </script>
 
     {{>backToTop}}
     {{>whatsAppHotkey}}

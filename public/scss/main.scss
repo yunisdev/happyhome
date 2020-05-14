@@ -152,26 +152,53 @@ a[href="https://elfsight.com/instagram-feed-instashow/?utm_source=websites&utm_m
 }
 .stores {
   border: 1px solid $main-grey;
-  padding: 30px;
+  padding: 10px;
   margin-top: 20px;
   border-radius: 20px;
-  div{
-    padding:20px;
+  div {
+    padding: 20px;
   }
   :nth-child(1) {
-    h5{
-      margin-bottom:20px;
+    h5 {
+      margin-bottom: 20px;
     }
     p {
       font-size: 13px;
-      margin:0;
+      margin: 0;
     }
   }
   :nth-child(2) {
-    padding:0;
+    padding: 0;
     iframe {
       border: none !important;
       border-radius: 20px;
     }
+  }
+}
+.contact-form {
+  border: 1px solid $main-grey;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 20px;
+  h5 {
+    padding: 10px;
+  }
+  form div {
+    padding: 10px;
+    * {
+      padding: 0;
+    }
+    label {
+      padding: 10px;
+    }
+    input,
+    textarea {
+      padding: 10px;
+    }
+  }
+}
+.contact-info {
+  h5 {
+    padding: 10px;
   }
 }

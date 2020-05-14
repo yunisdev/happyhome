@@ -25,6 +25,15 @@ const generateOfferBody = ({ name, email, notes }) => {
                 <p><b>Qeydlər:</b>${notes}</p>
             `
 }
+const generateContactBody = ({ name, email, phone, head, notes }) => {
+    return `
+                <p><b>Ad,Soyad:</b>${name}</p>
+                <p><b>E-poçt:</b><a href="mailto:${email}">${email}</a></p>
+                <p><b>Telefon:</b>${phone}</p>
+                <p><b>Başlıq:</b>${head}</p>
+                <p><b>Qeydlər:</b>${notes}</p>
+            `
+}
 const generateOrderBody = ({ id, name, phoneNum, email, address, notes, orders }) => {
     var orderStr = `
         <p><b>Sifariş verilən məhsullar</b></p><br>
@@ -52,4 +61,4 @@ const generateOrderBody = ({ id, name, phoneNum, email, address, notes, orders }
                 <p><b>Qeydlər:</b>${notes}</p><br>
             `+ orderStr
 }
-module.exports = { sendMail, generateOfferBody, generateOrderBody }
+module.exports = { sendMail, generateOfferBody, generateOrderBody, generateContactBody }

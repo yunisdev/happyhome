@@ -140,7 +140,7 @@ a[href="https://elfsight.com/instagram-feed-instashow/?utm_source=websites&utm_m
 
 .stores {
   border: 1px solid #cecece;
-  padding: 30px;
+  padding: 10px;
   margin-top: 20px;
   border-radius: 20px; }
   .stores div {
@@ -155,3 +155,23 @@ a[href="https://elfsight.com/instagram-feed-instashow/?utm_source=websites&utm_m
     .stores :nth-child(2) iframe {
       border: none !important;
       border-radius: 20px; }
+
+.contact-form {
+  border: 1px solid #cecece;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 20px; }
+  .contact-form h5 {
+    padding: 10px; }
+  .contact-form form div {
+    padding: 10px; }
+    .contact-form form div * {
+      padding: 0; }
+    .contact-form form div label {
+      padding: 10px; }
+    .contact-form form div input,
+    .contact-form form div textarea {
+      padding: 10px; }
+
+.contact-info h5 {
+  padding: 10px; }
