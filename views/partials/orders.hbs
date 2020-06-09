@@ -3,12 +3,12 @@
         <h2 class="col-md-12 text-center">Sifarişlər</h2>
         <div class="container col-md-12">
             {{#each orders}}
-            <div class="col-md-12 container" style="margin-top:10px" id="ordersContainer">
+            <div class="col-md-12 container" style="margin-top:10px" id="{{this._id}}">
                 <div class="col-md-12 row" style="padding:10px">
                     <div class="{{#if this.isDone}}done{{/if}} col-md-12 card text-left" style="border:2px solid grey;padding-top: 10px;">
                         <div class="col-md-12" style="margin:0;padding:20px">
                             <p>
-                                {{this.name}}
+                                {{this.name}} ({{this._id}})
                                 {{!-- View --}}
                                 <span style="z-index:9999!important;width:50px;float:right;margin-left:10px">
                                     <button title="Bax" onclick="window.open('/order/{{this._id}}')" class="btn btn-primary"><i
