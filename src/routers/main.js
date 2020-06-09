@@ -95,7 +95,7 @@ router.post('/order', async (req, res) => {
         }
         const mailOrder = { id: order._id, name, phoneNum, email, address, notes, orders }
         var body = mail.generateOrderBody(mailOrder)
-        mail.sendMail(process.env.EMAIL_ORDER_RECEIVER, 'Sifariş', body)
+        mail.sendMail(process.env.EMAIL_ORDER_RECEIVER, 'Sifariş '+ order._id.toString(), body)
         res.clearCookie('basket').cookie('orderID', order._id).redirect('/order-success')
     } catch (e) {
         res.send('Error ' + e.message)

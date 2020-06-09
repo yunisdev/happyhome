@@ -132,4 +132,24 @@ router.get('/product/delete/:id', auth, async (req, res) => {
     await Product.findByIdAndDelete(req.params.id)
     res.redirect('/panel')
 })
+router.post('/update/product/:id', upload.single('image'), auth, async (req, res) => {
+    const { name } = req.body
+    if (req.file) {
+        const buffer = await sharp(req.file.buffer).resize({
+            width: 500, height: 500
+        }).png().toBuffer()
+        await Product.findByIdAndUpdate(req.params.id, {
+            name,
+            image: buffer
+        })
+    }
+    else {
+        await Product.findByIdAndUpdate(req.params.id, {
+            name
+        })
+    }
+
+
+    res.redirect('/panel')
+})
 module.exports = router

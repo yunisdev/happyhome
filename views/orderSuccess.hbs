@@ -21,8 +21,10 @@
                 Sizinlə qısa müddətdə əlaqə saxlanacaq. Əgər hər hansı bir problem olsa aşağıdakı ID-ni qeyd etməklə
                 bizimlə əlaqə saxlayın
             </h4>
-            <h4 class="text-center col-md-12" style="font-size:x-large;margin-top:50px;margin-bottom:100px">
+            <h4 data-order-id="{{orderID}}" id="order-id" class="text-center col-md-12"
+                style="font-size:x-large;margin-top:50px;margin-bottom:100px">
                 {{orderID}}
+                <div style="display:flex;justify-content:center" id="qrcode"></div>
             </h4>
         </div>
 
@@ -33,6 +35,19 @@
 
     {{>backToTop}}
     {{>whatsAppHotkey}}
+    <script defer>
+        const qrcode = new QRCode("qrcode")
+        function makeCode() {
+            var elText = document.getElementById("order-id").getAttribute('data-order-id');
+
+            if (!elText) {
+                return;
+            }
+
+            qrcode.makeCode(elText);
+        }
+        makeCode()
+    </script>
 </body>
 
 </html>
