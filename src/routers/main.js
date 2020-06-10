@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     }
     for(var j = 0;j<keys.length;j++){
         for (var i = 0; i < data[keys[j]].length; i++) {
-            var p = await Product.findById(data[keys[j]][i])
+            var p = await Product.findOne({code:data[keys[j]][i]})
             trending[keys[j]].push(p)
         }
     }
