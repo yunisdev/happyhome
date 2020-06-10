@@ -8,9 +8,30 @@ const Subs = require('../models/subscriber')
 const mail = require('../utils/mail')
 const fs = require('fs')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    const data = require('../utils/indexVars')
+    var keys = ['bestSellersOfWeek', 'newProducts', 'selectedForYou']
+    var trending = {
+        bestSellersOfWeek: [
+
+        ],
+        newProducts: [
+
+        ],
+        selectedForYou: [
+
+        ]
+    }
+    for(var j = 0;j<keys.length;j++){
+        for (var i = 0; i < data[keys[j]].length; i++) {
+            var p = await Product.findById(data[keys[j]][i])
+            trending[keys[j]].push(p)
+        }
+    }
     res.render('index', {
-        subscribed: req.cookies.subscribed
+        subscribed: req.cookies.subscribed,
+        data,
+        trending
     })
 })
 router.get('/contact', (req, res) => {
@@ -95,7 +116,7 @@ router.post('/order', async (req, res) => {
         }
         const mailOrder = { id: order._id, name, phoneNum, email, address, notes, orders }
         var body = mail.generateOrderBody(mailOrder)
-        mail.sendMail(process.env.EMAIL_ORDER_RECEIVER, 'Sifariş '+ order._id.toString(), body)
+        mail.sendMail(process.env.EMAIL_ORDER_RECEIVER, 'Sifariş ' + order._id.toString(), body)
         res.clearCookie('basket').cookie('orderID', order._id).redirect('/order-success')
     } catch (e) {
         res.send('Error ' + e.message)
@@ -141,7 +162,7 @@ router.post('/stats', (req, res) => {
 router.post('/contact-form', (req, res) => {
     console.log(process.env.EMAIL_CONTACT_RECEIVER)
     var body = mail.generateContactBody(req.body)
-    mail.sendMail(process.env.EMAIL_CONTACT_RECEIVER,'Əlaqə',body)
+    mail.sendMail(process.env.EMAIL_CONTACT_RECEIVER, 'Əlaqə', body)
     res.redirect('/contact')
 })
 module.exports = router
