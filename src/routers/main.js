@@ -5,22 +5,16 @@ const auth = require('../middleware/auth')
 const Product = require('../models/product')
 const Order = require('../models/order')
 const Subs = require('../models/subscriber')
-const mail = require('../utils/mail')
+const mail = require('../other/mail')
 const fs = require('fs')
 
 router.get('/', async (req, res) => {
-    const data = require('../utils/indexVars')
+    const data = require('../other/data')
     var keys = ['bestSellersOfWeek', 'newProducts', 'selectedForYou']
     var trending = {
-        bestSellersOfWeek: [
-
-        ],
-        newProducts: [
-
-        ],
-        selectedForYou: [
-
-        ]
+        bestSellersOfWeek: [],
+        newProducts: [],
+        selectedForYou: []
     }
     for(var j = 0;j<keys.length;j++){
         for (var i = 0; i < data[keys[j]].length; i++) {
