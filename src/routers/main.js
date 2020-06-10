@@ -7,18 +7,19 @@ const Order = require('../models/order')
 const Subs = require('../models/subscriber')
 const mail = require('../other/mail')
 const fs = require('fs')
+const path = require('path')
 
 router.get('/', async (req, res) => {
-    const data = require('../other/data')
+    const data = JSON.parse(fs.readFileSync('./src/other/data.json').toString())
     var keys = ['bestSellersOfWeek', 'newProducts', 'selectedForYou']
     var trending = {
         bestSellersOfWeek: [],
         newProducts: [],
         selectedForYou: []
     }
-    for(var j = 0;j<keys.length;j++){
+    for (var j = 0; j < keys.length; j++) {
         for (var i = 0; i < data[keys[j]].length; i++) {
-            var p = await Product.findOne({code:data[keys[j]][i]})
+            var p = await Product.findOne({ code: data[keys[j]][i] })
             trending[keys[j]].push(p)
         }
     }
@@ -158,5 +159,36 @@ router.post('/contact-form', (req, res) => {
     var body = mail.generateContactBody(req.body)
     mail.sendMail(process.env.EMAIL_CONTACT_RECEIVER, 'Əlaqə', body)
     res.redirect('/contact')
+})
+router.post('/data/index', (req, res) => {
+    var { slide1, slide2, slide3, slide4, bestSellersOfWeek, selectedForYou, newProducts } = req.body
+    bestSellersOfWeek = bestSellersOfWeek.split(',')
+    for (var i = 0; i < bestSellersOfWeek.length; i++) {
+        bestSellersOfWeek[i] = bestSellersOfWeek[i].trim()
+    }
+    selectedForYou = selectedForYou.split(',')
+    for (var i = 0; i < selectedForYou.length; i++) {
+        selectedForYou[i] = selectedForYou[i].trim()
+    }
+    newProducts = newProducts.split(',')
+    for (var i = 0; i < newProducts.length; i++) {
+        newProducts[i] = newProducts[i].trim()
+    }
+    const data = JSON.parse(fs.readFileSync('./src/other/data.json').toString())
+    data.bestSellersOfWeek = bestSellersOfWeek
+    data.selectedForYou = selectedForYou
+    data.newProducts = newProducts
+    data.carousel = {
+        slide1,
+        slide2,
+        slide3,
+        slide4
+    }
+    fs.writeFileSync('./src/other/data.json', JSON.stringify(data))
+    res.send()
+})
+router.get('/data/index', (req, res) => {
+    const data = JSON.parse(fs.readFileSync('./src/other/data.json').toString())
+    res.send(data)
 })
 module.exports = router

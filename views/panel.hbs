@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>Happy Home Admin</title>
     {{>libs}}
-    
+
 </head>
 
 <body style="overflow-x: hidden;">
@@ -27,6 +27,9 @@
                     <li class="nav-item active admin-nav-item">
                         <a class="nav-link hvr-bounce-to-top" onclick="showOrders()"><i
                                 class="fas fa-clipboard-list-check"></i></a>
+                    </li>
+                    <li class="nav-item active admin-nav-item">
+                        <a class="nav-link hvr-bounce-to-top" onclick="openSettings()"><i class="fas fa-cog"></i></a>
                     </li>
                     <li class="nav-item active admin-nav-item">
                         <a class="nav-link hvr-bounce-to-top" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
@@ -78,6 +81,27 @@
         const showProducts = () => {
             hideAll()
             products.show()
+        }
+        const openSettings = () => {
+            fetch('/data/index')
+                .then((res) => {
+                    if (res.ok) {
+                        res.json().then((data) => {
+                            console.log(data)
+                            Swal.fire({
+                                html: `
+                                <form method="POST" style="padding:20px" action="/data/index">
+                                
+                                </form>
+                                `,
+                                showConfirmButton: false,
+                                showCancelButton: false,
+                                showCloseButton: true,
+                            })
+                        })
+                    }
+
+                })
         }
     </script>
 </body>
