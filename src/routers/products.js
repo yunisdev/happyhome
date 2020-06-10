@@ -61,8 +61,8 @@ router.get('/products/:category', async (req, res) => {
         case 'bakal-qrafin-desti':
             category = 'Bakal-Qrafin dəstləri'
             break;
-        case 'sufre-desti':
-            category = 'Süfrə dəstləri'
+        case 'servis':
+            category = 'Servislər'
             break;
 
         default:
