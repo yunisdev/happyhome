@@ -54,10 +54,11 @@
     <div class="productList">
         {{>productList}}
     </div>
-    <div class="loading-animation hidden">
-        <h1>Yüklənir...</h1>
+    <div class="loading-animation">
+        <img src="/assets/loading.gif" alt="loading">
     </div>
     <script>
+        var loadingAnimation = document.querySelector('.loading-animation')
         const welcome = $('.welcome-page')
         const addForm = $('.addProductForm')
         const orders = $('.orders')
@@ -83,10 +84,12 @@
             products.show()
         }
         const openSettings = () => {
+            loadingAnimation.style.display = 'flex'
             fetch('/data/index')
                 .then((res) => {
                     if (res.ok) {
                         res.json().then((data) => {
+                            loadingAnimation.style.display = 'none'
                             Swal.fire({
                                 html: `
                                 <form method="POST" style="padding:20px" action="/data/index">
@@ -137,6 +140,7 @@
                 })
         }
     </script>
+    
 </body>
 
 </html>
