@@ -5,7 +5,7 @@ const isAuth = require('../middleware/isAuth')
 const Product = require('../models/product')
 const Order = require('../models/order')
 const Subs = require('../models/subscriber')
-
+const fs = require('fs')
 
 router.get('/admin', isAuth, (req, res) => {
     if (req.isAuth) {
@@ -66,5 +66,36 @@ router.post('/order/comment/:id', auth, async (req, res) => {
         comments: req.body.comment
     })
     res.redirect('/panel')
+})
+router.post('/data/index', auth, (req, res) => {
+    var { slide1, slide2, slide3, slide4, bestSellersOfWeek, selectedForYou, newProducts } = req.body
+    bestSellersOfWeek = bestSellersOfWeek.split(',')
+    for (var i = 0; i < bestSellersOfWeek.length; i++) {
+        bestSellersOfWeek[i] = bestSellersOfWeek[i].trim()
+    }
+    selectedForYou = selectedForYou.split(',')
+    for (var i = 0; i < selectedForYou.length; i++) {
+        selectedForYou[i] = selectedForYou[i].trim()
+    }
+    newProducts = newProducts.split(',')
+    for (var i = 0; i < newProducts.length; i++) {
+        newProducts[i] = newProducts[i].trim()
+    }
+    const data = JSON.parse(fs.readFileSync('./src/other/data.json').toString())
+    data.bestSellersOfWeek = bestSellersOfWeek
+    data.selectedForYou = selectedForYou
+    data.newProducts = newProducts
+    data.carousel = {
+        slide1,
+        slide2,
+        slide3,
+        slide4
+    }
+    fs.writeFileSync('./src/other/data.json', JSON.stringify(data))
+    res.redirect('/panel')
+})
+router.get('/data/index', (req, res) => {
+    const data = JSON.parse(fs.readFileSync('./src/other/data.json').toString())
+    res.send(data)
 })
 module.exports = router

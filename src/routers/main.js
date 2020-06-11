@@ -160,35 +160,4 @@ router.post('/contact-form', (req, res) => {
     mail.sendMail(process.env.EMAIL_CONTACT_RECEIVER, 'Əlaqə', body)
     res.redirect('/contact')
 })
-router.post('/data/index', (req, res) => {
-    var { slide1, slide2, slide3, slide4, bestSellersOfWeek, selectedForYou, newProducts } = req.body
-    bestSellersOfWeek = bestSellersOfWeek.split(',')
-    for (var i = 0; i < bestSellersOfWeek.length; i++) {
-        bestSellersOfWeek[i] = bestSellersOfWeek[i].trim()
-    }
-    selectedForYou = selectedForYou.split(',')
-    for (var i = 0; i < selectedForYou.length; i++) {
-        selectedForYou[i] = selectedForYou[i].trim()
-    }
-    newProducts = newProducts.split(',')
-    for (var i = 0; i < newProducts.length; i++) {
-        newProducts[i] = newProducts[i].trim()
-    }
-    const data = JSON.parse(fs.readFileSync('./src/other/data.json').toString())
-    data.bestSellersOfWeek = bestSellersOfWeek
-    data.selectedForYou = selectedForYou
-    data.newProducts = newProducts
-    data.carousel = {
-        slide1,
-        slide2,
-        slide3,
-        slide4
-    }
-    fs.writeFileSync('./src/other/data.json', JSON.stringify(data))
-    res.send()
-})
-router.get('/data/index', (req, res) => {
-    const data = JSON.parse(fs.readFileSync('./src/other/data.json').toString())
-    res.send(data)
-})
 module.exports = router
